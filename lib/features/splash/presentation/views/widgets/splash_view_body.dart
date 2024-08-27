@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movies_app/core/utils/styles_manager.dart';
 
 import 'splash_view_logo.dart';
 
@@ -14,7 +15,7 @@ class SplashViewBody extends StatelessWidget {
           SplashViewLogo(),
           Text(
             'Your Ultimate Movie Experience',
-            style: TextStyle(color: Colors.white),
+            style: StylesManager.textStyle20,
           ),
         ],
       ),
