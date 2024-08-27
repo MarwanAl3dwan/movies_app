@@ -5,8 +5,8 @@ import '../../../../../../core/utils/styles_manager.dart';
 import 'home_view_app_bar.dart';
 import 'now_playing_poster.dart';
 
-class NowPlayingMoviesSection extends StatelessWidget {
-  const NowPlayingMoviesSection({super.key});
+class HomeViewHeader extends StatelessWidget {
+  const HomeViewHeader({super.key});
 
   @override
   Widget build(BuildContext context) {

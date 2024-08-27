@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../../core/utils/size_manager.dart';
-import '../../common/movie_list_item.dart';
+import '../../common_widgets/movie_list_item.dart';
 
-class PopularMoviesList extends StatelessWidget {
-  const PopularMoviesList({super.key});
+class HomeViewSection1List extends StatelessWidget {
+  const HomeViewSection1List({super.key});
 
   @override
   Widget build(BuildContext context) {

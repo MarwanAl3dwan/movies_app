@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
-import '../../../../../core/utils/app_router.dart';
 import '../../../../../core/utils/assets_manager.dart';
 import '../../../../../core/utils/size_manager.dart';
 
@@ -29,7 +27,5 @@ class MovieListItem extends StatelessWidget {
     );
   }
 
-  void _navigateToMovieDetailsView(BuildContext context) {
-    GoRouter.of(context).push(AppRouter.trendingNowView);
-  }
+  void _navigateToMovieDetailsView(BuildContext context) {}
 }

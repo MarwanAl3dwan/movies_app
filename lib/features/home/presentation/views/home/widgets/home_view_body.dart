@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'now_playing_movies_section.dart';
-import 'popular_movies_section.dart';
-import 'top_rated_movies_section.dart';
-import 'trending_now_movies_section.dart';
+import 'home_view_header.dart';
+import 'home_view_section2.dart';
+import 'home_view_section3.dart';
+import 'home_view_section1.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -13,16 +13,16 @@ class HomeViewBody extends StatelessWidget {
     return const CustomScrollView(
       slivers: [
         SliverToBoxAdapter(
-          child: NowPlayingMoviesSection(),
+          child: HomeViewHeader(),
         ),
         SliverToBoxAdapter(
-          child: TrendingNowMoviesSection(),
+          child: HomeViewSection1(),
         ),
         SliverToBoxAdapter(
-          child: PopularMoviesSection(),
+          child: HomeViewSection2(),
         ),
         SliverToBoxAdapter(
-          child: TopRatedMoviesSection(),
+          child: HomeViewSection3(),
         ),
       ],
     );
