@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:movies_app/core/utils/app_router.dart';
 
 import '../../../../../../core/common_widgets/gesture_text.dart';
 import '../../../../../../core/utils/size_manager.dart';
@@ -29,5 +31,7 @@ class HomeViewSection2 extends StatelessWidget {
     );
   }
 
-  void _navigateToPopularMoviesView(BuildContext context) {}
+  void _navigateToPopularMoviesView(BuildContext context) {
+    GoRouter.of(context).push(AppRouter.popularMoviesView);
+  }
 }
