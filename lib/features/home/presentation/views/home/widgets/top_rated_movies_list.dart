@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../core/utils/size_manager.dart';
-import 'movie_list_item.dart';
+import '../../../../../../core/utils/size_manager.dart';
+import '../../common/movie_list_item.dart';
 
 class TopRatedMoviesList extends StatelessWidget {
   const TopRatedMoviesList({super.key});

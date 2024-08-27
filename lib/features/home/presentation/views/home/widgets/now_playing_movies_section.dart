@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../core/utils/size_manager.dart';
-import '../../../../../core/utils/styles_manager.dart';
+import '../../../../../../core/utils/size_manager.dart';
+import '../../../../../../core/utils/styles_manager.dart';
 import 'home_view_app_bar.dart';
 import 'now_playing_poster.dart';
 

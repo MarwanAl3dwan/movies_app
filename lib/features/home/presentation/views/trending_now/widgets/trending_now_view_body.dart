@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MovieDetailsViewBody extends StatelessWidget {
-  const MovieDetailsViewBody({super.key});
+class TrendingNowViewBody extends StatelessWidget {
+  const TrendingNowViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
