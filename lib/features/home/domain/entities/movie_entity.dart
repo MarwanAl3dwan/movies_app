@@ -1,22 +1,23 @@
 class MovieEntity {
-  final num id;
-  final String title;
-  final String overview;
-  final String backdropPath;
-  final String posterPath;
-  final String originalLanguage;
-  final String releaseDate;
-  final num voteAverage;
-  final num voteCount;
+  final int movieId;
+  final String movieTitle;
+  final String movieOverview;
+  final String movieBackdropPath;
+  final String moviePosterPath;
+  final String movieOriginalLanguage;
+  final String movieReleaseDate;
+  final double movieVoteAverage;
+  final int movieVoteCount;
 
-  MovieEntity(
-      {required this.id,
-      required this.title,
-      required this.overview,
-      required this.backdropPath,
-      required this.posterPath,
-      required this.originalLanguage,
-      required this.releaseDate,
-      required this.voteAverage,
-      required this.voteCount});
+  MovieEntity({
+    required this.movieId,
+    required this.movieTitle,
+    required this.movieOverview,
+    required this.movieBackdropPath,
+    required this.moviePosterPath,
+    required this.movieOriginalLanguage,
+    required this.movieReleaseDate,
+    required this.movieVoteAverage,
+    required this.movieVoteCount,
+  });
 }
