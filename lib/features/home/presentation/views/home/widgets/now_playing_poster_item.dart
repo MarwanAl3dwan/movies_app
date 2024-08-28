@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../../../../core/utils/assets_manager.dart';
 
-class NowPlayingPoster extends StatelessWidget {
-  const NowPlayingPoster({super.key});
+class NowPlayingPosterItem extends StatelessWidget {
+  const NowPlayingPosterItem({super.key});
 
   @override
   Widget build(BuildContext context) {
