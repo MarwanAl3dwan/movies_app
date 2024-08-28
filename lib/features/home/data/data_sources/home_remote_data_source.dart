@@ -7,15 +7,15 @@ abstract class HomeRemoteDataSource {
 }
 
 class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
-  final ApiService _apiService;
+  final ApiService apiService;
 
-  HomeRemoteDataSourceImpl(this._apiService);
+  HomeRemoteDataSourceImpl({required this.apiService});
 
   @override
   Future<List<MovieEntity>> fetchNowPlayingMovies() async {
     const nowPlayingMoviesEndPoint = '/now_playing';
     Map<String, dynamic> data =
-        await _apiService.get(endPoint: nowPlayingMoviesEndPoint);
+        await apiService.get(endPoint: nowPlayingMoviesEndPoint);
     List<MovieEntity> moviesList = _getMoviesList(data);
     return moviesList;
   }

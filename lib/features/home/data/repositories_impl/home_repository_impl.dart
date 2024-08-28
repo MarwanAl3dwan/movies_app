@@ -6,14 +6,15 @@ import 'package:movies_app/features/home/domain/entities/movie_entity.dart';
 import 'package:movies_app/features/home/domain/repositories/home_repository.dart';
 
 class HomeRepositoryImpl extends HomeRepository {
-  final HomeRemoteDataSource _homeRemoteDataSource;
+  final HomeRemoteDataSource homeRemoteDataSource;
 
-  HomeRepositoryImpl(this._homeRemoteDataSource);
+  HomeRepositoryImpl({required this.homeRemoteDataSource});
+
   @override
   Future<Either<Failure, List<MovieEntity>>> fetchNowPlayingMovies() async {
     try {
       List<MovieEntity> moviesList =
-          await _homeRemoteDataSource.fetchNowPlayingMovies();
+          await homeRemoteDataSource.fetchNowPlayingMovies();
       return right(moviesList);
     } on DioException catch (e) {
       return left(ServerFailure.fromDioException(e));
