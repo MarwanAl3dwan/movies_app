@@ -24,7 +24,7 @@ class ServerFailure extends Failure {
         return ServerFailure(
             '[${e.response!.statusCode!}] Incorrect certificate with server.');
       case DioExceptionType.badResponse:
-        return ServerFailure.fromResponse(e.response!.statusCode!, e.response);
+        return ServerFailure('[${e.response!.statusCode!}] Bad Response.');
       case DioExceptionType.cancel:
         return ServerFailure(
             '[${e.response!.statusCode!}] Request to server was cancelled.');

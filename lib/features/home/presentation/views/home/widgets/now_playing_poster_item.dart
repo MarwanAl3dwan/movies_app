@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../../core/utils/assets_manager.dart';
-
 class NowPlayingPosterItem extends StatelessWidget {
-  const NowPlayingPosterItem({super.key});
+  const NowPlayingPosterItem({super.key, required this.posterPath});
+
+  final String posterPath;
 
   @override
   Widget build(BuildContext context) {
@@ -12,9 +12,9 @@ class NowPlayingPosterItem extends StatelessWidget {
       child: SizedBox(
         height: MediaQuery.of(context).size.height / 1.7,
         width: MediaQuery.of(context).size.width,
-        child: Image.asset(
-          AssetsManager.nowPlayingPoster,
-          fit: BoxFit.cover,
+        child: Image.network(
+          'https://image.tmdb.org/t/p/w500$posterPath',
+          fit: BoxFit.fill,
         ),
       ),
     );
