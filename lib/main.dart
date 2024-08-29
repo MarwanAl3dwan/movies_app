@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/core/utils/app_router.dart';
 
+import 'core/utils/app_bloc_observer.dart';
 import 'core/utils/colors_manager.dart';
 import 'core/utils/di.dart';
 
 void main() async {
   await initAppModule();
+  Bloc.observer = AppBlocObserver();
   runApp(const MoviesApp());
 }
 

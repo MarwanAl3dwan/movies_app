@@ -44,7 +44,7 @@ class _NowPlayingPosterListState extends State<NowPlayingPosterList> {
   }
 
   void initializeTimer() {
-    _timer = Timer.periodic(const Duration(seconds: 2), (Timer timer) {
+    _timer = Timer.periodic(const Duration(seconds: 3), (Timer timer) {
       if (_currentPoster < widget.movies.length - 1) {
         _currentPoster++;
       } else {

@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/features/home/presentation/views/home/widgets/now_playing_poster_list_consumer.dart';
 
 import '../../../../../../core/utils/size_manager.dart';
 import '../../../../../../core/utils/styles_manager.dart';
 import 'home_view_app_bar.dart';
+import 'now_playing_poster_list_consumer.dart';
 
 class HomeViewHeader extends StatelessWidget {
-  const HomeViewHeader({super.key});
+  const HomeViewHeader({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -3,20 +3,20 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../domain/entities/movie_entity.dart';
 import '../../../cubits/trending_movies_cubit/trending_movies_cubit.dart';
-import 'home_view_section1_list.dart';
-import 'home_view_section1_loading_list.dart';
+import '../../common_widgets/movies_grid_view.dart';
 
-class HomeViewSection1Consumer extends StatefulWidget {
-  const HomeViewSection1Consumer({
+class TrendingNowMoviesGridViewConsumer extends StatefulWidget {
+  const TrendingNowMoviesGridViewConsumer({
     super.key,
   });
 
   @override
-  State<HomeViewSection1Consumer> createState() =>
-      _HomeViewSection1ConsumerState();
+  State<TrendingNowMoviesGridViewConsumer> createState() =>
+      _TrendingNowMoviesGridViewConsumerState();
 }
 
-class _HomeViewSection1ConsumerState extends State<HomeViewSection1Consumer> {
+class _TrendingNowMoviesGridViewConsumerState
+    extends State<TrendingNowMoviesGridViewConsumer> {
   final List<MovieEntity> movies = [];
 
   @override
@@ -29,11 +29,12 @@ class _HomeViewSection1ConsumerState extends State<HomeViewSection1Consumer> {
       },
       builder: (context, state) {
         if (state is TrendingMoviesLoading) {
-          return const HomeViewSection1LoadingList();
+          return const Center(
+              child: Text('Loading...', style: TextStyle(color: Colors.white)));
         } else if (state is TrendingMoviesFailure) {
-          return Center(child: Text(state.errorMessage));
+          return Text(state.errorMessage);
         }
-        return HomeViewSection1List(movies: movies);
+        return MoviesGridView(movies: movies);
       },
     );
   }

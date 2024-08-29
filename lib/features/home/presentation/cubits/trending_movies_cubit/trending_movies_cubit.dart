@@ -10,6 +10,7 @@ class TrendingMoviesCubit extends Cubit<TrendingMoviesState> {
       : super(TrendingMoviesInitial());
 
   final FetchTrendingMoviesUseCase trendingMoviesUseCase;
+  final List<MovieEntity> movies = [];
 
   Future<void> fetchTrendingMovies() async {
     emit(TrendingMoviesLoading());
@@ -19,7 +20,8 @@ class TrendingMoviesCubit extends Cubit<TrendingMoviesState> {
       (Failure failure) {
         emit(TrendingMoviesFailure(errorMessage: failure.message));
       },
-      (List<MovieEntity> movies) {
+      (List<MovieEntity> moviesList) {
+        movies.addAll(moviesList);
         emit(TrendingMoviesSuccess(movies: movies));
       },
     );

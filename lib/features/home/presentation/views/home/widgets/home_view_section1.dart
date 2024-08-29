@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:movies_app/core/utils/app_router.dart';
 
 import '../../../../../../core/common_widgets/gesture_text.dart';
+import '../../../../../../core/utils/app_router.dart';
 import '../../../../../../core/utils/size_manager.dart';
 import '../../../../../../core/utils/styles_manager.dart';
 import 'home_view_section1_consumer.dart';
@@ -22,8 +22,9 @@ class HomeViewSection1 extends StatelessWidget {
           const HomeViewSection1Consumer(),
           const SizedBox(height: SizeManager.s4),
           GestureText(
-              text: 'See More',
-              onTap: () => _navigateToTrendingNowView(context)),
+            text: 'See More',
+            onTap: () => _navigateToTrendingNowView(context),
+          ),
           const SizedBox(height: SizeManager.s10),
         ],
       ),

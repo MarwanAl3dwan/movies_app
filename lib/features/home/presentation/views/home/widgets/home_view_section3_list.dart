@@ -15,7 +15,7 @@ class HomeViewSection3List extends StatelessWidget {
       height: 210,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: movies.length,
+        itemCount: (movies.length / 2).floor(),
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.only(right: SizeManager.s16),
