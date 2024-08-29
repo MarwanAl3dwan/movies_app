@@ -1,4 +1,4 @@
-import 'package:movies_app/features/home/domain/entities/movie_entity.dart';
+part of 'trending_movies_cubit.dart';
 
 abstract class TrendingMoviesState {}
 

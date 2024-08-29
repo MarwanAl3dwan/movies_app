@@ -5,4 +5,5 @@ import 'package:movies_app/features/home/domain/entities/movie_entity.dart';
 abstract class HomeRepository {
   Future<Either<Failure, List<MovieEntity>>> fetchNowPlayingMovies();
   Future<Either<Failure, List<MovieEntity>>> fetchTrendingMovies();
+  Future<Either<Failure, List<MovieEntity>>> fetchPopularMovies();
 }

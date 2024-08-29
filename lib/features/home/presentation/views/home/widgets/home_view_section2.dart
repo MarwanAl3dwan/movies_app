@@ -5,7 +5,7 @@ import 'package:movies_app/core/utils/app_router.dart';
 import '../../../../../../core/common_widgets/gesture_text.dart';
 import '../../../../../../core/utils/size_manager.dart';
 import '../../../../../../core/utils/styles_manager.dart';
-import 'home_view_section2_list.dart';
+import 'home_view_section2_consumer.dart';
 
 class HomeViewSection2 extends StatelessWidget {
   const HomeViewSection2({super.key});
@@ -19,7 +19,7 @@ class HomeViewSection2 extends StatelessWidget {
         children: [
           const Text('Popular Movies', style: StylesManager.textStyle22),
           const SizedBox(height: SizeManager.s10),
-          const HomeViewSection2List(),
+          const HomeViewSection2Consumer(),
           const SizedBox(height: SizeManager.s4),
           GestureText(
             text: 'See More',

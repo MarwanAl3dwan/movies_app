@@ -1,24 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movies_app/features/home/presentation/views/home/widgets/home_view_section1_loading_list.dart';
 
 import '../../../../domain/entities/movie_entity.dart';
 import '../../../cubits/trending_movies_cubit/trending_movies_cubit.dart';
-import '../../../cubits/trending_movies_cubit/trending_movies_state.dart';
 import 'home_view_section1_list.dart';
+import 'home_view_section1_loading_list.dart';
 
-class HomeViewSection1ListConsumer extends StatefulWidget {
-  const HomeViewSection1ListConsumer({
+class HomeViewSection1Consumer extends StatefulWidget {
+  const HomeViewSection1Consumer({
     super.key,
   });
 
   @override
-  State<HomeViewSection1ListConsumer> createState() =>
-      _HomeViewSection1ListConsumerState();
+  State<HomeViewSection1Consumer> createState() =>
+      _HomeViewSection1ConsumerState();
 }
 
-class _HomeViewSection1ListConsumerState
-    extends State<HomeViewSection1ListConsumer> {
+class _HomeViewSection1ConsumerState extends State<HomeViewSection1Consumer> {
   final List<MovieEntity> movies = [];
 
   @override
