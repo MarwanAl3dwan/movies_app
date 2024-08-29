@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../domain/entities/movie_entity.dart';
 import '../../../cubits/trending_movies_cubit/trending_movies_cubit.dart';
 import '../../common_widgets/movies_grid_view.dart';
+import '../../common_widgets/movies_grid_view_loading.dart';
 
 class TrendingNowMoviesGridViewConsumer extends StatefulWidget {
   const TrendingNowMoviesGridViewConsumer({
@@ -29,8 +30,7 @@ class _TrendingNowMoviesGridViewConsumerState
       },
       builder: (context, state) {
         if (state is TrendingMoviesLoading) {
-          return const Center(
-              child: Text('Loading...', style: TextStyle(color: Colors.white)));
+          return const MoviesGridViewLoading();
         } else if (state is TrendingMoviesFailure) {
           return Text(state.errorMessage);
         }
