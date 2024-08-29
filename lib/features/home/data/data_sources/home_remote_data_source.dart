@@ -6,6 +6,7 @@ abstract class HomeRemoteDataSource {
   Future<List<MovieEntity>> fetchNowPlayingMovies();
   Future<List<MovieEntity>> fetchTrendingMovies();
   Future<List<MovieEntity>> fetchPopularMovies();
+  Future<List<MovieEntity>> fetchTopRatedMovies();
 }
 
 class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
@@ -24,7 +25,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
 
   @override
   Future<List<MovieEntity>> fetchTrendingMovies() async {
-    const timeWindow = 'day'; // 'day' or 'week'
+    const timeWindow = 'week'; // 'day' or 'week'
     const trendingMoviesEndPoint = '/trending/movie/$timeWindow';
     Map<String, dynamic> data =
         await apiService.get(endPoint: trendingMoviesEndPoint);
@@ -39,6 +40,15 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
         await apiService.get(endPoint: popularMoviesEndPoint);
     List<MovieEntity> popularMoviesList = _getMoviesList(data);
     return popularMoviesList;
+  }
+
+  @override
+  Future<List<MovieEntity>> fetchTopRatedMovies() async {
+    const topRatedMoviesEndPoint = '/movie/top_rated';
+    Map<String, dynamic> data =
+        await apiService.get(endPoint: topRatedMoviesEndPoint);
+    List<MovieEntity> topRatedMoviesList = _getMoviesList(data);
+    return topRatedMoviesList;
   }
 
   List<MovieEntity> _getMoviesList(Map<String, dynamic> data) {

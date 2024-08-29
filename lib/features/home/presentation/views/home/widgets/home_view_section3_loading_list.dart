@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../../../../core/utils/size_manager.dart';
 import '../../common_widgets/movie_list_item_loading.dart';
 
-class HomeViewSection2LoadingList extends StatelessWidget {
-  const HomeViewSection2LoadingList({super.key});
+class HomeViewSection3LoadingList extends StatelessWidget {
+  const HomeViewSection3LoadingList({super.key});
 
   @override
   Widget build(BuildContext context) {

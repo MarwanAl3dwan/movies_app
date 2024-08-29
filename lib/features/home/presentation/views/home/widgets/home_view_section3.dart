@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:movies_app/core/utils/app_router.dart';
 
 import '../../../../../../core/common_widgets/gesture_text.dart';
+import '../../../../../../core/utils/app_router.dart';
 import '../../../../../../core/utils/size_manager.dart';
 import '../../../../../../core/utils/styles_manager.dart';
-import 'home_view_section3_list.dart';
+import 'home_view_section3_consumer.dart';
 
 class HomeViewSection3 extends StatelessWidget {
   const HomeViewSection3({super.key});
@@ -19,7 +19,7 @@ class HomeViewSection3 extends StatelessWidget {
         children: [
           const Text('Top Rated Movies', style: StylesManager.textStyle22),
           const SizedBox(height: SizeManager.s10),
-          const HomeViewSection3List(),
+          const HomeViewSection3Consumer(),
           const SizedBox(height: SizeManager.s4),
           GestureText(
             text: 'See More',

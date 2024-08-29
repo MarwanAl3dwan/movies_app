@@ -49,4 +49,17 @@ class HomeRepositoryImpl extends HomeRepository {
       return left(ServerFailure(e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, List<MovieEntity>>> fetchTopRatedMovies() async {
+    try {
+      List<MovieEntity> moviesList =
+          await homeRemoteDataSource.fetchTopRatedMovies();
+      return right(moviesList);
+    } on DioException catch (e) {
+      return left(ServerFailure.fromDioException(e));
+    } catch (e) {
+      return left(ServerFailure(e.toString()));
+    }
+  }
 }

@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:movies_app/features/home/domain/usecases/fetch_popular_movies_use_case.dart';
+import 'package:movies_app/features/home/domain/usecases/fetch_top_rated_movies_use_case.dart';
 
 import '../../features/home/data/data_sources/home_remote_data_source.dart';
 import '../../features/home/data/repositories_impl/home_repository_impl.dart';
@@ -37,6 +38,12 @@ Future<void> initAppModule() async {
 
   instance.registerSingleton<FetchPopularMoviesUseCase>(
     FetchPopularMoviesUseCase(
+      homeRepository: instance<HomeRepositoryImpl>(),
+    ),
+  );
+
+  instance.registerSingleton<FetchTopRatedMoviesUseCase>(
+    FetchTopRatedMoviesUseCase(
       homeRepository: instance<HomeRepositoryImpl>(),
     ),
   );

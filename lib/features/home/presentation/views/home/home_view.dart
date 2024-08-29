@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/features/home/domain/usecases/fetch_popular_movies_use_case.dart';
+import 'package:movies_app/features/home/domain/usecases/fetch_top_rated_movies_use_case.dart';
 import 'package:movies_app/features/home/domain/usecases/fetch_trending_movies_use_case.dart';
 import 'package:movies_app/features/home/presentation/cubits/popular_movies_cubit/popular_movies_cubit.dart';
+import 'package:movies_app/features/home/presentation/cubits/top_rated_movies_cubit/top_rated_movies_cubit.dart';
 import 'package:movies_app/features/home/presentation/cubits/trending_movies_cubit/trending_movies_cubit.dart';
 
 import '../../../../../core/utils/di.dart';
@@ -33,6 +35,11 @@ class HomeView extends StatelessWidget {
             create: (context) => PopularMoviesCubit(
               instance<FetchPopularMoviesUseCase>(),
             )..fetchPopularMovies(),
+          ),
+          BlocProvider<TopRatedMoviesCubit>(
+            create: (context) => TopRatedMoviesCubit(
+              instance<FetchTopRatedMoviesUseCase>(),
+            )..fetchTopRatedMovies(),
           ),
         ],
         child: const HomeViewBody(),
