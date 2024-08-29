@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../../core/utils/size_manager.dart';
-import '../../common_widgets/movie_list_item.dart';
 
 class HomeViewSection3List extends StatelessWidget {
   const HomeViewSection3List({super.key});
@@ -16,7 +15,8 @@ class HomeViewSection3List extends StatelessWidget {
         itemBuilder: (context, index) {
           return const Padding(
             padding: EdgeInsets.only(right: SizeManager.s16),
-            child: MovieListItem(),
+            // child: MovieListItem(),
+            child: SizedBox(),
           );
         },
       ),

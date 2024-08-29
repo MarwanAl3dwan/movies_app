@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:movies_app/features/home/domain/entities/movie_entity.dart';
 
 import '../../../../../core/utils/assets_manager.dart';
 import '../../../../../core/utils/size_manager.dart';
 
 class MovieListItem extends StatelessWidget {
-  const MovieListItem({super.key, this.onTap});
+  const MovieListItem({super.key, this.onTap, required this.movieEntity});
+
+  final MovieEntity movieEntity;
 
   final void Function()? onTap;
 
@@ -20,7 +23,9 @@ class MovieListItem extends StatelessWidget {
           aspectRatio: 1 / 1.5,
           child: ClipRRect(
             borderRadius: BorderRadius.circular(SizeManager.s16),
-            child: Image.asset(AssetsManager.nowPlayingPoster),
+            child: Image.network(
+              '${AssetsManager.imageUrl}${movieEntity.moviePosterPath}',
+            ),
           ),
         ),
       ),

@@ -4,7 +4,6 @@ import '../../../../../../core/common_widgets/custom_app_bar.dart';
 import '../../../../../../core/utils/colors_manager.dart';
 import '../../../../../../core/utils/size_manager.dart';
 import '../../../../../../core/utils/styles_manager.dart';
-import '../../common_widgets/movie_list_item.dart';
 
 class PopularMoviesViewBody extends StatelessWidget {
   const PopularMoviesViewBody({super.key});
@@ -37,7 +36,8 @@ class PopularMoviesViewBody extends StatelessWidget {
               ),
               itemCount: 18,
               itemBuilder: (context, index) {
-                return const MovieListItem();
+                // return const MovieListItem();
+                return const SizedBox();
               },
             ),
           ),

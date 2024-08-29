@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/features/home/presentation/views/home/widgets/now_playing_poster_list_bloc_consumer.dart';
+import 'package:movies_app/features/home/presentation/views/home/widgets/now_playing_poster_list_consumer.dart';
 
 import '../../../../../../core/utils/size_manager.dart';
 import '../../../../../../core/utils/styles_manager.dart';
@@ -16,7 +16,7 @@ class HomeViewHeader extends StatelessWidget {
           height: MediaQuery.of(context).size.height / 1.7,
           child: const Stack(
             children: [
-              NowPlayingPosterListBlocConsumer(),
+              NowPlayingPosterListConsumer(),
               Column(
                 children: [
                   HomeViewAppBar(),

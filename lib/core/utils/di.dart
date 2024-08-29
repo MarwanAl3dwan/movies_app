@@ -4,6 +4,7 @@ import 'package:get_it/get_it.dart';
 import '../../features/home/data/data_sources/home_remote_data_source.dart';
 import '../../features/home/data/repositories_impl/home_repository_impl.dart';
 import '../../features/home/domain/usecases/fetch_now_playing_movies_use_case.dart';
+import '../../features/home/domain/usecases/fetch_trending_movies_use_case.dart';
 import 'api_service.dart';
 
 final GetIt instance = GetIt.instance;
@@ -23,6 +24,12 @@ Future<void> initAppModule() async {
 
   instance.registerSingleton<FetchNowPlayingMoviesUseCase>(
     FetchNowPlayingMoviesUseCase(
+      homeRepository: instance<HomeRepositoryImpl>(),
+    ),
+  );
+
+  instance.registerSingleton<FetchTrendingMoviesUseCase>(
+    FetchTrendingMoviesUseCase(
       homeRepository: instance<HomeRepositoryImpl>(),
     ),
   );

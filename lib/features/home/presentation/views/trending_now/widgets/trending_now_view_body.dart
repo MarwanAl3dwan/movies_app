@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/common_widgets/custom_app_bar.dart';
 import 'package:movies_app/core/utils/colors_manager.dart';
-import 'package:movies_app/features/home/presentation/views/common_widgets/movie_list_item.dart';
 
 import '../../../../../../core/utils/size_manager.dart';
 import '../../../../../../core/utils/styles_manager.dart';
@@ -37,7 +36,8 @@ class TrendingNowViewBody extends StatelessWidget {
               ),
               itemCount: 18,
               itemBuilder: (context, index) {
-                return const MovieListItem();
+                // return const MovieListItem();
+                return const SizedBox();
               },
             ),
           ),

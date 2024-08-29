@@ -1,5 +1,6 @@
 abstract class AssetsManager {
   static const imagesPath = 'assets/images';
+  static const imageUrl = 'https://image.tmdb.org/t/p/w500';
   static const splashLogo = '$imagesPath/logo.png';
   static const profileImage = '$imagesPath/profile-image.png';
   static const nowPlayingPoster = '$imagesPath/now-playing-poster.jpg';

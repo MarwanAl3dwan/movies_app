@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../../core/utils/assets_manager.dart';
+
 class NowPlayingPosterItem extends StatelessWidget {
   const NowPlayingPosterItem({super.key, required this.posterPath});
 
@@ -13,7 +15,7 @@ class NowPlayingPosterItem extends StatelessWidget {
         height: MediaQuery.of(context).size.height / 1.7,
         width: MediaQuery.of(context).size.width,
         child: Image.network(
-          'https://image.tmdb.org/t/p/w500$posterPath',
+          '${AssetsManager.imageUrl}$posterPath',
           fit: BoxFit.fill,
         ),
       ),
