@@ -4,6 +4,7 @@ import 'package:movies_app/features/home/domain/entities/movie_entity.dart';
 
 abstract class HomeRemoteDataSource {
   Future<List<MovieEntity>> fetchNowPlayingMovies();
+  Future<List<MovieEntity>> fetchTrendingMovies();
 }
 
 class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
@@ -13,9 +14,19 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
 
   @override
   Future<List<MovieEntity>> fetchNowPlayingMovies() async {
-    const nowPlayingMoviesEndPoint = '/now_playing';
+    const nowPlayingMoviesEndPoint = '/movie/now_playing';
     Map<String, dynamic> data =
         await apiService.get(endPoint: nowPlayingMoviesEndPoint);
+    List<MovieEntity> moviesList = _getMoviesList(data);
+    return moviesList;
+  }
+
+  @override
+  Future<List<MovieEntity>> fetchTrendingMovies() async {
+    const timeWindow = 'day'; // 'day' or 'week'
+    const trendingMoviesEndPoint = '/trending/movie/$timeWindow';
+    Map<String, dynamic> data =
+        await apiService.get(endPoint: trendingMoviesEndPoint);
     List<MovieEntity> moviesList = _getMoviesList(data);
     return moviesList;
   }
