@@ -5,4 +5,5 @@ abstract class ColorsManager {
   static const secondary = Color(0xffffffff);
   static const tertiary = Color.fromRGBO(56, 55, 55, 0.4);
   static const red = Color(0xffEB3223);
+  static const loadingColor = Colors.grey;
 }
