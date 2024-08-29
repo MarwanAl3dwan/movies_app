@@ -14,6 +14,7 @@ class NowPlayingMoviesCubit extends Cubit<NowPlayingMoviesState> {
   final FetchNowPlayingMoviesUseCase _nowPlayingMoviesUseCase;
 
   Future<void> fetchNowPlayingMovies() async {
+    emit(NowPlayingMoviesLoading());
     var response = await _nowPlayingMoviesUseCase.execute();
 
     response.fold(
