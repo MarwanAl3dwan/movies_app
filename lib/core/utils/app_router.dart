@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:movies_app/features/home/presentation/views/popular_movies/popular_movies_view.dart';
-import 'package:movies_app/features/home/presentation/views/top_rated/top_rated_view.dart';
-import 'package:movies_app/features/home/presentation/views/trending_now/trending_now_view.dart';
 
 import '../../features/home/presentation/views/home/home_view.dart';
+import '../../features/home/presentation/views/popular_movies/popular_movies_view.dart';
+import '../../features/home/presentation/views/top_rated/top_rated_view.dart';
+import '../../features/home/presentation/views/trending_now/trending_now_view.dart';
+import '../../features/movie_details/presentation/views/movie_details/movie_details_view.dart';
 import '../../features/splash/presentation/views/splash_view.dart';
 
 abstract class AppRouter {
@@ -12,6 +13,7 @@ abstract class AppRouter {
   static const String trendingNowView = '/trendingNowView';
   static const String popularMoviesView = '/popularMoviesView';
   static const String topRatedView = '/topRatedView';
+  static const String movieDetailsView = '/movieDetailsView';
 
   static final router = GoRouter(
     routes: [
@@ -49,6 +51,14 @@ abstract class AppRouter {
           context: context,
           state: state,
           child: const TopRatedView(),
+        ),
+      ),
+      GoRoute(
+        path: movieDetailsView,
+        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+          context: context,
+          state: state,
+          child: const MovieDetailsView(),
         ),
       ),
     ],

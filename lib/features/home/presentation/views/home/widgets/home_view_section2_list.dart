@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movies_app/features/home/domain/entities/movie_entity.dart';
 
 import '../../../../../../core/utils/size_manager.dart';
-import '../../common_widgets/movie_list_item.dart';
+import '../../../common_widgets/movie_list_item.dart';
 
 class HomeViewSection2List extends StatelessWidget {
   const HomeViewSection2List({super.key, required this.movies});

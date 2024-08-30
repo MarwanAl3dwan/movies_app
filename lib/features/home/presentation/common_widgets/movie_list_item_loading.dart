@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
-import '../../../../../core/utils/colors_manager.dart';
-import '../../../../../core/utils/size_manager.dart';
+import '../../../../core/utils/colors_manager.dart';
+import '../../../../core/utils/size_manager.dart';
 
 class MovieListItemLoading extends StatelessWidget {
   const MovieListItemLoading({super.key});

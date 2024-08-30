@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../domain/entities/movie_entity.dart';
 import '../../../cubits/trending_movies_cubit/trending_movies_cubit.dart';
-import '../../common_widgets/movies_grid_view.dart';
-import '../../common_widgets/movies_grid_view_loading.dart';
+import '../../../common_widgets/movies_grid_view.dart';
+import '../../../common_widgets/movies_grid_view_loading.dart';
 
 class TrendingNowMoviesGridViewConsumer extends StatefulWidget {
   const TrendingNowMoviesGridViewConsumer({

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movies_app/features/home/domain/entities/movie_entity.dart';
 
 import '../../../../../../core/utils/size_manager.dart';
-import '../../common_widgets/movie_list_item.dart';
+import '../../../common_widgets/movie_list_item.dart';
 
 class HomeViewSection1List extends StatelessWidget {
   const HomeViewSection1List({super.key, required this.movies});
@@ -15,7 +15,6 @@ class HomeViewSection1List extends StatelessWidget {
       height: 210,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        // itemCount: Math.round(),
         itemCount: (movies.length / 2).floor(),
         itemBuilder: (context, index) {
           return Padding(

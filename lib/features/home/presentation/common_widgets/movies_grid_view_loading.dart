@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../core/utils/size_manager.dart';
+import '../../../../core/utils/size_manager.dart';
 import 'movie_list_item_loading.dart';
 
 class MoviesGridViewLoading extends StatelessWidget {

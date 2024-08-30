@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:movies_app/core/utils/colors_manager.dart';
 import 'package:movies_app/features/home/domain/entities/movie_entity.dart';
 
-import '../../../../../core/utils/assets_manager.dart';
-import '../../../../../core/utils/size_manager.dart';
+import '../../../../core/utils/app_router.dart';
+import '../../../../core/utils/assets_manager.dart';
+import '../../../../core/utils/size_manager.dart';
 
 class MovieListItem extends StatelessWidget {
   const MovieListItem({super.key, this.onTap, required this.movieEntity});
@@ -17,6 +19,7 @@ class MovieListItem extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         _navigateToMovieDetailsView(context);
+        _callProviderToFetchMovieDataFromApi();
       },
       child: Container(
         height: 210,
@@ -37,5 +40,9 @@ class MovieListItem extends StatelessWidget {
     );
   }
 
-  void _navigateToMovieDetailsView(BuildContext context) {}
+  void _navigateToMovieDetailsView(BuildContext context) {
+    GoRouter.of(context).push(AppRouter.trendingNowView);
+  }
+
+  void _callProviderToFetchMovieDataFromApi() {}
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../core/utils/size_manager.dart';
-import '../../../domain/entities/movie_entity.dart';
+import '../../../../core/utils/size_manager.dart';
+import '../../domain/entities/movie_entity.dart';
 import 'movie_list_item.dart';
 
 class MoviesGridView extends StatelessWidget {
