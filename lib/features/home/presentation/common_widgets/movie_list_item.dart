@@ -41,7 +41,7 @@ class MovieListItem extends StatelessWidget {
   }
 
   void _navigateToMovieDetailsView(BuildContext context) {
-    GoRouter.of(context).push(AppRouter.trendingNowView);
+    GoRouter.of(context).push(AppRouter.movieDetailsView);
   }
 
   void _callProviderToFetchMovieDataFromApi() {}
