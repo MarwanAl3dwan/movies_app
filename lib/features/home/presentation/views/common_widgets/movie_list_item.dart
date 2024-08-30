@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movies_app/core/utils/colors_manager.dart';
 import 'package:movies_app/features/home/domain/entities/movie_entity.dart';
 
 import '../../../../../core/utils/assets_manager.dart';
@@ -17,8 +18,12 @@ class MovieListItem extends StatelessWidget {
       onTap: () {
         _navigateToMovieDetailsView(context);
       },
-      child: SizedBox(
+      child: Container(
         height: 210,
+        decoration: BoxDecoration(
+          border: Border.all(color: ColorsManager.secondary, width: 0.2),
+          borderRadius: BorderRadius.circular(SizeManager.s16),
+        ),
         child: AspectRatio(
           aspectRatio: 1 / 1.5,
           child: ClipRRect(

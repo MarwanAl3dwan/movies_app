@@ -26,7 +26,7 @@ class MoviesGridView extends StatelessWidget {
   SliverGridDelegate buildSliverGridDelegate() {
     return const SliverGridDelegateWithFixedCrossAxisCount(
       childAspectRatio: 1 / 1.5,
-      crossAxisCount: 3,
+      crossAxisCount: 2,
       crossAxisSpacing: SizeManager.s12,
       mainAxisSpacing: SizeManager.s12,
     );
