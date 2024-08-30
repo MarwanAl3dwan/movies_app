@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'home_view_header_provider.dart';
-import 'home_view_section2_provider.dart';
-import 'home_view_section3_provider.dart';
-import 'home_view_section1_provider.dart';
+import 'home_view_header.dart';
+import 'home_view_section1.dart';
+import 'home_view_section2.dart';
+import 'home_view_section3.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -12,10 +12,10 @@ class HomeViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return const CustomScrollView(
       slivers: [
-        SliverToBoxAdapter(child: HomeViewHeaderProvider()),
-        SliverToBoxAdapter(child: HomeViewSection1Provider()),
-        SliverToBoxAdapter(child: HomeViewSection2Provider()),
-        SliverToBoxAdapter(child: HomeViewSection3Provider()),
+        SliverToBoxAdapter(child: HomeViewHeader()),
+        SliverToBoxAdapter(child: HomeViewSection1()),
+        SliverToBoxAdapter(child: HomeViewSection2()),
+        SliverToBoxAdapter(child: HomeViewSection3()),
       ],
     );
   }

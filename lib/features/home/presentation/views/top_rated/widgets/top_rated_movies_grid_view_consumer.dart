@@ -21,6 +21,12 @@ class _TopRatedMoviesGridViewConsumerState
   final List<MovieEntity> movies = [];
 
   @override
+  void initState() {
+    BlocProvider.of<TopRatedMoviesCubit>(context).fetchTopRatedMovies();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BlocConsumer<TopRatedMoviesCubit, TopRatedMoviesState>(
       listener: (context, state) {
