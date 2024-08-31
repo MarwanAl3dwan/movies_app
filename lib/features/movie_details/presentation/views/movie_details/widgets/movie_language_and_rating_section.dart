@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../../core/utils/size_manager.dart';
 import 'movie_language.dart';
 import 'movie_rating.dart';
 
@@ -8,12 +9,15 @@ class LanguageAndRatingSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
-      children: [
-        MovieLanguage(),
-        Spacer(),
-        MovieRating(),
-      ],
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: SizeManager.s14),
+      child: Row(
+        children: [
+          MovieLanguage(),
+          Spacer(),
+          MovieRating(),
+        ],
+      ),
     );
   }
 }

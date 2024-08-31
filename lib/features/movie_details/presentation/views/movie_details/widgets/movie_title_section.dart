@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../../../../core/utils/size_manager.dart';
 import '../../../../../../core/utils/styles_manager.dart';
 
-class MovieTitle extends StatelessWidget {
-  const MovieTitle({super.key, required this.title});
+class MovieTitleSection extends StatelessWidget {
+  const MovieTitleSection({super.key, required this.title});
 
   final String title;
 

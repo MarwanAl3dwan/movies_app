@@ -12,4 +12,6 @@ abstract class AssetsManager {
   static const subtitles = '$imagesPath/Subtitles.png';
   static const audio = '$imagesPath/Audio.png';
   static const hd = '$imagesPath/HD.png';
+  static const plusMath = '$imagesPath/plus-math.png';
+  static const share = '$imagesPath/Share.png';
 }
