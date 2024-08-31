@@ -9,4 +9,7 @@ abstract class AssetsManager {
   static const cube = '$imagesPath/cube.png';
   static const scrollDown = '$imagesPath/scroll-down.png';
   static const backdrop = '$imagesPath/backdrop.jpg';
+  static const subtitles = '$imagesPath/Subtitles.png';
+  static const audio = '$imagesPath/Audio.png';
+  static const hd = '$imagesPath/HD.png';
 }

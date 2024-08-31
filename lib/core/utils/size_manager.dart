@@ -1,4 +1,5 @@
 abstract class SizeManager {
+  static const double s1 = 1;
   static const double s3 = 3;
   static const double s4 = 4;
   static const double s5 = 5;
