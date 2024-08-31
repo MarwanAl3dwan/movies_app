@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:movies_app/features/movie_details/presentation/views/similar_movies/similar_movies_view.dart';
 
 import '../../features/home/presentation/views/home/home_view.dart';
 import '../../features/home/presentation/views/popular_movies/popular_movies_view.dart';
@@ -14,6 +15,7 @@ abstract class AppRouter {
   static const String popularMoviesView = '/popularMoviesView';
   static const String topRatedView = '/topRatedView';
   static const String movieDetailsView = '/movieDetailsView';
+  static const String similarMoviesView = '/similarMoviesView';
 
   static final router = GoRouter(
     routes: [
@@ -59,6 +61,14 @@ abstract class AppRouter {
           context: context,
           state: state,
           child: const MovieDetailsView(),
+        ),
+      ),
+      GoRoute(
+        path: similarMoviesView,
+        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+          context: context,
+          state: state,
+          child: const SimilarMoviesView(),
         ),
       ),
     ],
