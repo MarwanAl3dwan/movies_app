@@ -1,8 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/errors/failure.dart';
-import '../../../home/domain/entities/movie_entity.dart';
-import '../../domain/usecases/fetch_movie_details_use_case.dart';
+import '../../../../../core/errors/failure.dart';
+import '../../../../home/domain/entities/movie_entity.dart';
+import '../../../domain/usecases/fetch_movie_details_use_case.dart';
 
 part 'movie_details_state.dart';
 

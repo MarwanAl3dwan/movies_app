@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movies_app/core/utils/app_router.dart';
-import 'package:movies_app/features/movie_details/domain/usecases/fetch_movie_details_use_case.dart';
-import 'package:movies_app/features/movie_details/presentation/cubits/movie_details_cubit.dart';
 
 import 'core/utils/app_bloc_observer.dart';
+import 'core/utils/app_router.dart';
 import 'core/utils/colors_manager.dart';
 import 'core/utils/di.dart';
 import 'features/home/domain/usecases/fetch_now_playing_movies_use_case.dart';
@@ -17,6 +15,10 @@ import 'features/home/presentation/cubits/top_rated_movies_cubit/top_rated_movie
 import 'features/home/presentation/cubits/trending_movies_cubit/trending_movies_cubit.dart';
 import 'features/home/presentation/views/home/widgets/home_view_header.dart';
 import 'features/home/presentation/views/home/widgets/home_view_section1.dart';
+import 'features/movie_details/domain/usecases/fetch_movie_details_use_case.dart';
+import 'features/movie_details/domain/usecases/fetch_similar_movies_use_case.dart';
+import 'features/movie_details/presentation/cubits/movie_details_cubit/movie_details_cubit.dart';
+import 'features/movie_details/presentation/cubits/similar_movies_cubit/similar_movies_cubit.dart';
 
 void main() async {
   await initAppModule();
@@ -56,6 +58,11 @@ class MoviesApp extends StatelessWidget {
         BlocProvider<MovieDetailsCubit>(
           create: (context) => MovieDetailsCubit(
             instance<FetchMovieDetailsUseCase>(),
+          ),
+        ),
+        BlocProvider<SimilarMoviesCubit>(
+          create: (context) => SimilarMoviesCubit(
+            instance<FetchSimilarMoviesUseCase>(),
           ),
         ),
       ],

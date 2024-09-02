@@ -5,10 +5,13 @@ import '../../../../../../core/common_widgets/gesture_text.dart';
 import '../../../../../../core/utils/app_router.dart';
 import '../../../../../../core/utils/size_manager.dart';
 import '../../../../../../core/utils/styles_manager.dart';
+import '../../../../../home/domain/entities/movie_entity.dart';
 import 'more_like_this_section_list.dart';
 
 class MoreLikeThisSection extends StatelessWidget {
-  const MoreLikeThisSection({super.key});
+  const MoreLikeThisSection({super.key, required this.movies});
+
+  final List<MovieEntity> movies;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +22,7 @@ class MoreLikeThisSection extends StatelessWidget {
         children: [
           const Text('More Like This', style: StylesManager.textStyle22),
           const SizedBox(height: SizeManager.s10),
-          const MoreLikeThisList(),
+          MoreLikeThisList(movies: movies),
           const SizedBox(height: SizeManager.s4),
           GestureText(
             text: 'See More',

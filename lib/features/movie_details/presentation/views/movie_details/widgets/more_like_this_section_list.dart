@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../../core/utils/size_manager.dart';
-import '../../../../../home/presentation/common_widgets/movie_list_item_loading.dart';
+import '../../../../../home/domain/entities/movie_entity.dart';
+import '../../../../../home/presentation/common_widgets/movie_list_item.dart';
 
 class MoreLikeThisList extends StatelessWidget {
   const MoreLikeThisList({
     super.key,
+    required this.movies,
   });
+
+  final List<MovieEntity> movies;
 
   @override
   Widget build(BuildContext context) {
@@ -14,11 +18,11 @@ class MoreLikeThisList extends StatelessWidget {
       height: 210,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: 5,
+        itemCount: movies.length,
         itemBuilder: (context, index) {
-          return const Padding(
-            padding: EdgeInsets.only(right: SizeManager.s16),
-            child: MovieListItemLoading(),
+          return Padding(
+            padding: const EdgeInsets.only(right: SizeManager.s16),
+            child: MovieListItem(movieEntity: movies[index]),
           );
         },
       ),

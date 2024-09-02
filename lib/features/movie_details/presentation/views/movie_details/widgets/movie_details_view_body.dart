@@ -4,7 +4,7 @@ import '../../../../../../core/common_widgets/custom_app_bar.dart';
 import '../../../../../../core/common_widgets/line_spacer.dart';
 import '../../../../../../core/utils/size_manager.dart';
 import '../../../../../home/domain/entities/movie_entity.dart';
-import 'more_like_this_section.dart';
+import 'more_like_this_section_consumer.dart';
 import 'movie_action_buttons.dart';
 import 'movie_backdrop_section.dart';
 import 'movie_genres_list_section.dart';
@@ -52,7 +52,7 @@ class MovieDetailsViewBody extends StatelessWidget {
                       const EdgeInsets.symmetric(horizontal: SizeManager.s14),
                 ),
                 const SizedBox(height: SizeManager.s20),
-                const MoreLikeThisSection(),
+                const MoreLikeThisSectionConsumer(),
               ],
             ),
           ),
