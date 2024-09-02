@@ -16,18 +16,22 @@ class _MovieDetailsViewState extends State<MovieDetailsView> {
   MovieEntity? movieEntity;
 
   @override
-  void initState() {
-    movieEntity = BlocProvider.of<MovieDetailsCubit>(context).getMovieEntity();
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: BlocConsumer<MovieDetailsCubit, MovieDetailsState>(
-        listener: (context, state) {},
+        listener: (context, state) {
+          if (state is MovieDetailsSuccess) {
+            movieEntity = state.movieEntity;
+          }
+        },
         builder: (context, state) {
-          return MovieDetailsViewBody(movieEntity: movieEntity!);
+          if (state is MovieDetailsSuccess) {
+            return MovieDetailsViewBody(movieEntity: movieEntity!);
+          } else if (state is MovieDetailsFailure) {
+            return Center(child: Text(state.errorMessage));
+          } else {
+            return const Center(child: CircularProgressIndicator());
+          }
         },
       ),
     );

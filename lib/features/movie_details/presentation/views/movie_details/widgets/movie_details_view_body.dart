@@ -32,7 +32,7 @@ class MovieDetailsViewBody extends StatelessWidget {
                 const SizedBox(height: SizeManager.s16),
                 MovieTitleSection(title: movieEntity.movieTitle),
                 const SizedBox(height: SizeManager.s14),
-                MovieGenresListSection(genres: movieEntity.genres),
+                MovieGenresListSection(genres: movieEntity.genreIds),
                 const SizedBox(height: SizeManager.s14),
                 MovieReleaseSection(releaseDate: movieEntity.movieReleaseDate),
                 const SizedBox(height: SizeManager.s10),

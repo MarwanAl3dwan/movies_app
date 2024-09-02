@@ -8,7 +8,7 @@ class MovieEntity {
   final String movieReleaseDate;
   final double movieVoteAverage;
   final int movieVoteCount;
-  final List<int> genres;
+  final List<int> genreIds;
 
   MovieEntity({
     required this.movieId,
@@ -20,6 +20,6 @@ class MovieEntity {
     required this.movieReleaseDate,
     required this.movieVoteAverage,
     required this.movieVoteCount,
-    required this.genres,
+    required this.genreIds,
   });
 }

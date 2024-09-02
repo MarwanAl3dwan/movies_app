@@ -28,4 +28,3 @@ class TopRatedViewBody extends StatelessWidget {
     );
   }
 }
-

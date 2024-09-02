@@ -6,8 +6,7 @@ import '../../../../../../core/utils/styles_manager.dart';
 class MovieLanguage extends StatelessWidget {
   const MovieLanguage({super.key, required this.lang});
 
-    final String lang;
-
+  final String lang;
 
   @override
   Widget build(BuildContext context) {

@@ -3,7 +3,7 @@ import 'package:movies_app/features/home/domain/entities/movie_entity.dart';
 class MovieModel extends MovieEntity {
   bool? adult;
   String? backdropPath;
-  List<int>? genreIds;
+  List<int>? genres;
   int? id;
   String? originalLanguage;
   String? originalTitle;
@@ -19,7 +19,7 @@ class MovieModel extends MovieEntity {
   MovieModel({
     this.adult,
     this.backdropPath,
-    this.genreIds,
+    this.genres,
     this.id,
     this.originalLanguage,
     this.originalTitle,
@@ -41,13 +41,13 @@ class MovieModel extends MovieEntity {
           movieReleaseDate: releaseDate ?? 'Unknown',
           movieVoteAverage: voteAverage ?? 0.0,
           movieVoteCount: voteCount ?? 0,
-          genres: genreIds ?? [],
+          genreIds: genres ?? [],
         );
 
   factory MovieModel.fromJson(Map<String, dynamic> json) => MovieModel(
         adult: json['adult'] as bool?,
         backdropPath: json['backdrop_path'] as String?,
-        genreIds: (json['genre_ids'] as List<dynamic>?)
+        genres: (json['genre_ids'] as List<dynamic>?)
             ?.map((e) => e as int)
             .toList(),
         id: json['id'] as int?,

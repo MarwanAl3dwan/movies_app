@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/core/utils/app_router.dart';
+import 'package:movies_app/features/movie_details/domain/usecases/fetch_movie_details_use_case.dart';
 import 'package:movies_app/features/movie_details/presentation/cubits/movie_details_cubit.dart';
 
 import 'core/utils/app_bloc_observer.dart';
@@ -53,7 +54,9 @@ class MoviesApp extends StatelessWidget {
           )..fetchTopRatedMovies(),
         ),
         BlocProvider<MovieDetailsCubit>(
-          create: (context) => MovieDetailsCubit(),
+          create: (context) => MovieDetailsCubit(
+            instance<FetchMovieDetailsUseCase>(),
+          ),
         ),
       ],
       child: MaterialApp.router(

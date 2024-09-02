@@ -42,7 +42,8 @@ class MovieListItem extends StatelessWidget {
   }
 
   void _navigateToMovieDetailsView(BuildContext context) {
-    BlocProvider.of<MovieDetailsCubit>(context).saveMovieEntity(movieEntity);
     GoRouter.of(context).push(AppRouter.movieDetailsView);
+    BlocProvider.of<MovieDetailsCubit>(context)
+        .fetchMovieDetails(movieEntity.movieId);
   }
 }

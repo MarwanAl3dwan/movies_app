@@ -7,7 +7,7 @@ class MovieDetailsInitial extends MovieDetailsState {}
 class MovieDetailsLoading extends MovieDetailsState {}
 
 class MovieDetailsSuccess extends MovieDetailsState {
-  final MovieEntity? movieEntity;
+  final MovieEntity movieEntity;
   MovieDetailsSuccess({required this.movieEntity});
 }
 
