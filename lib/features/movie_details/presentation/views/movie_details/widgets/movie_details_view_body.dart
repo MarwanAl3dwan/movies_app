@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movies_app/features/home/domain/entities/movie_entity.dart';
 
 import '../../../../../../core/common_widgets/custom_app_bar.dart';
 import '../../../../../../core/common_widgets/line_spacer.dart';
@@ -13,7 +14,9 @@ import 'movie_release_section.dart';
 import 'movie_title_section.dart';
 
 class MovieDetailsViewBody extends StatelessWidget {
-  const MovieDetailsViewBody({super.key});
+  const MovieDetailsViewBody({super.key, required this.movieEntity});
+
+  final MovieEntity movieEntity;
 
   @override
   Widget build(BuildContext context) {
@@ -25,17 +28,21 @@ class MovieDetailsViewBody extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const MovieBackdropSection(),
+                MovieBackdropSection(backdrop: movieEntity.movieBackdropPath),
                 const SizedBox(height: SizeManager.s16),
-                const MovieTitleSection(title: 'Law Abiding Citizen'),
+                MovieTitleSection(title: movieEntity.movieTitle),
                 const SizedBox(height: SizeManager.s14),
-                const MovieGenresListSection(),
+                MovieGenresListSection(genres: movieEntity.genres),
                 const SizedBox(height: SizeManager.s14),
-                const MovieReleaseSection(),
+                MovieReleaseSection(releaseDate: movieEntity.movieReleaseDate),
                 const SizedBox(height: SizeManager.s10),
-                const LanguageAndRatingSection(),
+                LanguageAndRatingSection(
+                  lang: movieEntity.movieOriginalLanguage,
+                  rating: movieEntity.movieVoteAverage,
+                  voteCount: movieEntity.movieVoteCount,
+                ),
                 const SizedBox(height: SizeManager.s16),
-                const MovieOverviewSection(),
+                MovieOverviewSection(overview: movieEntity.movieOverview),
                 const SizedBox(height: SizeManager.s20),
                 const MovieActionButtons(),
                 const SizedBox(height: SizeManager.s20),

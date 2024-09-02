@@ -19,9 +19,7 @@ class HomeViewSection2List extends StatelessWidget {
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.only(right: SizeManager.s16),
-            child: MovieListItem(
-              movieEntity: movies[index],
-            ),
+            child: MovieListItem(movieEntity: movies[index]),
           );
         },
       ),

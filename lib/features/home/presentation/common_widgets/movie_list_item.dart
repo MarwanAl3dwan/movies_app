@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movies_app/core/utils/colors_manager.dart';
 import 'package:movies_app/features/home/domain/entities/movie_entity.dart';
+import 'package:movies_app/features/movie_details/presentation/cubits/movie_details_cubit.dart';
 
 import '../../../../core/utils/app_router.dart';
 import '../../../../core/utils/assets_manager.dart';
@@ -19,7 +21,6 @@ class MovieListItem extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         _navigateToMovieDetailsView(context);
-        _callProviderToFetchMovieDataFromApi();
       },
       child: Container(
         height: 210,
@@ -41,8 +42,7 @@ class MovieListItem extends StatelessWidget {
   }
 
   void _navigateToMovieDetailsView(BuildContext context) {
+    BlocProvider.of<MovieDetailsCubit>(context).saveMovieEntity(movieEntity);
     GoRouter.of(context).push(AppRouter.movieDetailsView);
   }
-
-  void _callProviderToFetchMovieDataFromApi() {}
 }

@@ -41,6 +41,7 @@ class MovieModel extends MovieEntity {
           movieReleaseDate: releaseDate ?? 'Unknown',
           movieVoteAverage: voteAverage ?? 0.0,
           movieVoteCount: voteCount ?? 0,
+          genres: genreIds ?? [],
         );
 
   factory MovieModel.fromJson(Map<String, dynamic> json) => MovieModel(

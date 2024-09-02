@@ -7,7 +7,9 @@ import 'movie_genre_item.dart';
 import 'stream_flix_movie_tag.dart';
 
 class MovieReleaseSection extends StatelessWidget {
-  const MovieReleaseSection({super.key});
+  const MovieReleaseSection({super.key, required this.releaseDate});
+
+  final String releaseDate;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,7 @@ class MovieReleaseSection extends StatelessWidget {
       child: Row(
         children: [
           Text(
-            "2023",
+            DateTime.parse(releaseDate).year.toString(),
             style: StylesManager.textStyle20.copyWith(
               fontWeight: FontWeight.w600,
             ),

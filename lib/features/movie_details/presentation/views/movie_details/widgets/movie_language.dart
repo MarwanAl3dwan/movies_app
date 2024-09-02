@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 import '../../../../../../core/utils/styles_manager.dart';
 
 class MovieLanguage extends StatelessWidget {
-  const MovieLanguage({super.key});
+  const MovieLanguage({super.key, required this.lang});
+
+    final String lang;
+
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +15,7 @@ class MovieLanguage extends StatelessWidget {
       children: [
         const Text('Lang: ', style: StylesManager.textStyle20),
         CountryFlag.fromLanguageCode(
-          'en',
+          lang,
           height: 25,
           width: 45,
         ),
