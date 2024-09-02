@@ -20,15 +20,6 @@ class MovieDetailsRemoteDataSourceImpl extends MovieDetailsRemoteDataSource {
     return movie;
   }
 
-  // @override
-  // Future<List<MovieEntity>> fetchTopRatedMovies() async {
-  //   const topRatedMoviesEndPoint = '/movie/top_rated';
-  //   Map<String, dynamic> data =
-  //       await apiService.get(endPoint: topRatedMoviesEndPoint);
-  //   List<MovieEntity> topRatedMoviesList = _getMoviesList(data);
-  //   return topRatedMoviesList;
-  // }
-
   MovieEntity _getMovieEntity(Map<String, dynamic> data) {
     MovieEntity movie;
     movie = MovieDetailsModel.fromJson(data);
