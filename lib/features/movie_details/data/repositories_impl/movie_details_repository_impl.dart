@@ -23,4 +23,18 @@ class MovieDetailsRepositoryImpl extends MovieDetailsRepository {
       return left(ServerFailure(e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, List<MovieEntity>>> fetchSimilarMovies(
+      int movieId) async {
+    try {
+      List<MovieEntity> movies =
+          await movieDetailsRemoteDataSource.fetchSimilarMovies(movieId);
+      return right(movies);
+    } on DioException catch (e) {
+      return left(ServerFailure.fromDioException(e));
+    } catch (e) {
+      return left(ServerFailure(e.toString()));
+    }
+  }
 }
