@@ -67,7 +67,9 @@ class MovieDetailsModel extends MovieEntity {
           movieOriginalLanguage: originalLanguage ?? 'Unknown',
           movieOverview: overview ?? 'Unknown',
           moviePosterPath: posterPath ?? 'UnknownImage',
-          movieReleaseDate: releaseDate ?? 'Unknown',
+          movieReleaseDate: releaseDate == '' || releaseDate == null
+              ? 'Unknown'
+              : releaseDate,
           movieTitle: title ?? 'Unknown',
           movieVoteAverage: voteAverage ?? 0.0,
           movieVoteCount: voteCount ?? 0,

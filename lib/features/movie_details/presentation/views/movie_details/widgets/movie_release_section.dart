@@ -18,12 +18,14 @@ class MovieReleaseSection extends StatelessWidget {
       child: Row(
         children: [
           Text(
-            DateTime.parse(releaseDate).year.toString(),
+            releaseDate == 'Unknown'
+                ? ''
+                : DateTime.parse(releaseDate).year.toString(),
             style: StylesManager.textStyle20.copyWith(
               fontWeight: FontWeight.w600,
             ),
           ),
-          const SizedBox(width: SizeManager.s16),
+          SizedBox(width: releaseDate == 'Unknown' ? 0 : SizeManager.s16),
           const MovieGenreItem(text: "U/A 16+"),
           const SizedBox(width: SizeManager.s16),
           Image.asset(AssetsManager.hd),

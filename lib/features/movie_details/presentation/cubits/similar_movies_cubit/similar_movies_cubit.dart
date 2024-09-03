@@ -25,10 +25,10 @@ class SimilarMoviesCubit extends Cubit<SimilarMoviesState> {
                 movie.moviePosterPath != 'UnknownImage' &&
                 movie.movieBackdropPath != 'UnknownImage')
             .toList();
-        if (validMovies.isNotEmpty) {
-          emit(SimiLarMoviesSuccess(movies: validMovies));
-        } else {
+        if (validMovies.isEmpty) {
           emit(SimilarMoviesEmpty());
+        } else {
+          emit(SimiLarMoviesSuccess(movies: validMovies));
         }
       },
     );

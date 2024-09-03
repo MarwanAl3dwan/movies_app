@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 
 import '../../../../../../core/utils/size_manager.dart';
@@ -12,7 +10,6 @@ class MovieGenresListSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    log(genres.length.toString());
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: SizeManager.s14),
       child: SizedBox(

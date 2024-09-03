@@ -1,6 +1,7 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movies_app/core/utils/size_manager.dart';
 
 import '../../../../../home/domain/entities/movie_entity.dart';
 import '../../../cubits/similar_movies_cubit/similar_movies_cubit.dart';
@@ -22,6 +23,13 @@ class _MoreLikeThisSectionConsumerState
   final List<MovieEntity> movies = [];
 
   @override
+  void initState() {
+    BlocProvider.of<SimilarMoviesCubit>(context)
+        .fetchSimilarMovies(widget.movieId);
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BlocConsumer<SimilarMoviesCubit, SimilarMoviesState>(
       listener: (context, state) {
@@ -31,12 +39,15 @@ class _MoreLikeThisSectionConsumerState
       },
       builder: (context, state) {
         if (state is SimiLarMoviesSuccess) {
+          log(movies.length.toString());
           return MoreLikeThisSection(
             similarMovies: movies,
             movieId: widget.movieId,
           );
+        } else if (state is SimiLarMoviesFailure) {
+          return Center(child: Text(state.errorMessage));
         } else if (state is SimilarMoviesEmpty) {
-          return const SizedBox(height: SizeManager.s120);
+          return const Center(child: Text('Empty!'));
         } else {
           return const MoreLikeThisLoadingSection();
         }
