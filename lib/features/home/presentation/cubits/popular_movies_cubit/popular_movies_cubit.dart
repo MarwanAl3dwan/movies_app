@@ -19,7 +19,12 @@ class PopularMoviesCubit extends Cubit<PopularMoviesState> {
         emit(PopularMoviesFailure(errorMessage: failure.message));
       },
       (List<MovieEntity> movies) {
-        emit(PopularMoviesSuccess(movies: movies));
+        List<MovieEntity> validMovies = movies
+            .where((movie) =>
+                movie.moviePosterPath != 'UnknownImage' &&
+                movie.movieBackdropPath != 'UnknownImage')
+            .toList();
+        emit(PopularMoviesSuccess(movies: validMovies));
       },
     );
   }

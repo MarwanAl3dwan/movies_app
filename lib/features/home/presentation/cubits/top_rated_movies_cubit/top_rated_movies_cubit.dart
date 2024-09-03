@@ -21,7 +21,12 @@ class TopRatedMoviesCubit extends Cubit<TopRatedMoviesState> {
         emit(TopRatedMoviesFailure(errorMessage: failure.message));
       },
       (List<MovieEntity> movies) {
-        emit(TopRatedMoviesSuccess(movies: movies));
+        List<MovieEntity> validMovies = movies
+            .where((movie) =>
+                movie.moviePosterPath != 'UnknownImage' &&
+                movie.movieBackdropPath != 'UnknownImage')
+            .toList();
+        emit(TopRatedMoviesSuccess(movies: validMovies));
       },
     );
   }

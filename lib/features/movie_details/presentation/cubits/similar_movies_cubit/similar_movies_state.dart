@@ -12,6 +12,8 @@ class SimiLarMoviesSuccess extends SimilarMoviesState {
   SimiLarMoviesSuccess({required this.movies});
 }
 
+class SimilarMoviesEmpty extends SimilarMoviesState {}
+
 class SimiLarMoviesFailure extends SimilarMoviesState {
   final String errorMessage;
 

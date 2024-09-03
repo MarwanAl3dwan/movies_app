@@ -22,7 +22,12 @@ class NowPlayingMoviesCubit extends Cubit<NowPlayingMoviesState> {
         emit(NowPlayingMoviesFailure(failure.message));
       },
       (List<MovieEntity> movies) {
-        emit(NowPlayingMoviesSuccess(movies));
+        List<MovieEntity> validMovies = movies
+            .where((movie) =>
+                movie.moviePosterPath != 'UnknownImage' &&
+                movie.movieBackdropPath != 'UnknownImage')
+            .toList();
+        emit(NowPlayingMoviesSuccess(validMovies));
       },
     );
   }

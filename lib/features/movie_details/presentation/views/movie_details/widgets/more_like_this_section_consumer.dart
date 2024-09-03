@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/core/utils/size_manager.dart';
@@ -25,28 +27,23 @@ class _MoreLikeThisSectionConsumerState
       listener: (context, state) {
         if (state is SimiLarMoviesSuccess) {
           movies.addAll(state.movies);
+          for (var movie in state.movies) {
+            log(movie.movieTitle);
+            log(movie.moviePosterPath);
+            log(movie.movieBackdropPath);
+            log('------------------------');
+          }
         }
       },
       builder: (context, state) {
         if (state is SimiLarMoviesSuccess) {
-          if (movies.isNotEmpty) {
-            return MoreLikeThisSection(movies: movies);
-          } else {
-            return const MoreLikeThisEmpty();
-          }
+          return MoreLikeThisSection(movies: movies);
+        } else if (state is SimilarMoviesEmpty) {
+          return const SizedBox(height: SizeManager.s120);
         } else {
           return const MoreLikeThisLoadingSection();
         }
       },
     );
-  }
-}
-
-class MoreLikeThisEmpty extends StatelessWidget {
-  const MoreLikeThisEmpty({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const SizedBox(height: SizeManager.s120);
   }
 }

@@ -20,7 +20,16 @@ class SimilarMoviesCubit extends Cubit<SimilarMoviesState> {
         emit(SimiLarMoviesFailure(errorMessage: failure.message));
       },
       (List<MovieEntity> movies) {
-        emit(SimiLarMoviesSuccess(movies: movies));
+        List<MovieEntity> validMovies = movies
+            .where((movie) =>
+                movie.moviePosterPath != 'UnknownImage' &&
+                movie.movieBackdropPath != 'UnknownImage')
+            .toList();
+        if (validMovies.isNotEmpty) {
+          emit(SimiLarMoviesSuccess(movies: validMovies));
+        } else {
+          emit(SimilarMoviesEmpty());
+        }
       },
     );
   }

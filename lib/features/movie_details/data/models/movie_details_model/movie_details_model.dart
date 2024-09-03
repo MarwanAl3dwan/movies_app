@@ -61,16 +61,16 @@ class MovieDetailsModel extends MovieEntity {
     this.voteAverage,
     this.voteCount,
   }) : super(
-          genreIds: genres!.map((genre) => genre.id!).toList(),
-          movieBackdropPath: backdropPath!,
+          genreIds: genres?.map((genre) => genre.id!).toList() ?? [],
+          movieBackdropPath: backdropPath ?? 'UnknownImage',
           movieId: id!,
-          movieOriginalLanguage: originalLanguage!,
-          movieOverview: overview!,
-          moviePosterPath: posterPath!,
-          movieReleaseDate: releaseDate!,
-          movieTitle: title!,
-          movieVoteAverage: voteAverage!,
-          movieVoteCount: voteCount!,
+          movieOriginalLanguage: originalLanguage ?? 'Unknown',
+          movieOverview: overview ?? 'Unknown',
+          moviePosterPath: posterPath ?? 'UnknownImage',
+          movieReleaseDate: releaseDate ?? 'Unknown',
+          movieTitle: title ?? 'Unknown',
+          movieVoteAverage: voteAverage ?? 0.0,
+          movieVoteCount: voteCount ?? 0,
         );
 
   factory MovieDetailsModel.fromJson(Map<String, dynamic> json) {

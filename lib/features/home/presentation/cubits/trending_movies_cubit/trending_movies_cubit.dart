@@ -10,7 +10,6 @@ class TrendingMoviesCubit extends Cubit<TrendingMoviesState> {
       : super(TrendingMoviesInitial());
 
   final FetchTrendingMoviesUseCase trendingMoviesUseCase;
-  final List<MovieEntity> movies = [];
 
   Future<void> fetchTrendingMovies() async {
     emit(TrendingMoviesLoading());
@@ -20,9 +19,13 @@ class TrendingMoviesCubit extends Cubit<TrendingMoviesState> {
       (Failure failure) {
         emit(TrendingMoviesFailure(errorMessage: failure.message));
       },
-      (List<MovieEntity> moviesList) {
-        movies.addAll(moviesList);
-        emit(TrendingMoviesSuccess(movies: movies));
+      (List<MovieEntity> movies) {
+        List<MovieEntity> validMovies = movies
+            .where((movie) =>
+                movie.moviePosterPath != 'UnknownImage' &&
+                movie.movieBackdropPath != 'UnknownImage')
+            .toList();
+        emit(TrendingMoviesSuccess(movies: validMovies));
       },
     );
   }
