@@ -52,7 +52,7 @@ class MovieDetailsViewBody extends StatelessWidget {
                       const EdgeInsets.symmetric(horizontal: SizeManager.s14),
                 ),
                 const SizedBox(height: SizeManager.s20),
-                const MoreLikeThisSectionConsumer(),
+                MoreLikeThisSectionConsumer(movieId: movieEntity.movieId),
               ],
             ),
           ),

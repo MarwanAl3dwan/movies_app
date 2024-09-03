@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/core/utils/size_manager.dart';
@@ -10,7 +8,9 @@ import 'more_like_this_loading_section.dart';
 import 'more_like_this_section.dart';
 
 class MoreLikeThisSectionConsumer extends StatefulWidget {
-  const MoreLikeThisSectionConsumer({super.key});
+  const MoreLikeThisSectionConsumer({super.key, required this.movieId});
+
+  final int movieId;
 
   @override
   State<MoreLikeThisSectionConsumer> createState() =>
@@ -27,17 +27,14 @@ class _MoreLikeThisSectionConsumerState
       listener: (context, state) {
         if (state is SimiLarMoviesSuccess) {
           movies.addAll(state.movies);
-          for (var movie in state.movies) {
-            log(movie.movieTitle);
-            log(movie.moviePosterPath);
-            log(movie.movieBackdropPath);
-            log('------------------------');
-          }
         }
       },
       builder: (context, state) {
         if (state is SimiLarMoviesSuccess) {
-          return MoreLikeThisSection(movies: movies);
+          return MoreLikeThisSection(
+            similarMovies: movies,
+            movieId: widget.movieId,
+          );
         } else if (state is SimilarMoviesEmpty) {
           return const SizedBox(height: SizeManager.s120);
         } else {
