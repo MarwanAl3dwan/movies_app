@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/errors/failure.dart';
+import '../../../../../core/utils/functions.dart';
 import '../../../domain/entities/movie_entity.dart';
 import '../../../domain/usecases/fetch_top_rated_movies_use_case.dart';
 
@@ -21,11 +22,7 @@ class TopRatedMoviesCubit extends Cubit<TopRatedMoviesState> {
         emit(TopRatedMoviesFailure(errorMessage: failure.message));
       },
       (List<MovieEntity> movies) {
-        List<MovieEntity> validMovies = movies
-            .where((movie) =>
-                movie.moviePosterPath != 'UnknownImage' &&
-                movie.movieBackdropPath != 'UnknownImage')
-            .toList();
+        var validMovies = excludeMoviesWithCorruptedImages(movies);
         emit(TopRatedMoviesSuccess(movies: validMovies));
       },
     );

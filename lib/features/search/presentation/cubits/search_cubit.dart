@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/errors/failure.dart';
+import '../../../../core/utils/functions.dart';
 import '../../../home/domain/entities/movie_entity.dart';
 import '../../domain/usecases/search_use_case.dart';
 
@@ -22,11 +23,7 @@ class SearchCubit extends Cubit<SearchState> {
         emit(SearchFailure(errorMessage: failure.message));
       },
       (List<MovieEntity> movies) {
-        List<MovieEntity> validMovies = movies
-            .where((movie) =>
-                movie.moviePosterPath != 'UnknownImage' &&
-                movie.movieBackdropPath != 'UnknownImage')
-            .toList();
+        var validMovies = excludeMoviesWithCorruptedImages(movies);
         if (validMovies.isEmpty) {
           emit(SearchEmpty());
         } else {

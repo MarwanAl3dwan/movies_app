@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/errors/failure.dart';
+import '../../../../../core/utils/functions.dart';
 import '../../../domain/entities/cast_member_entity.dart';
 import '../../../domain/usecases/fetch_cast_members_use_case.dart';
 
@@ -20,9 +21,7 @@ class CastMembersCubit extends Cubit<CastMembersState> {
         emit(CastMembersFailure(errorMessage: failure.message));
       },
       (List<CastMemberEntity> castMembers) {
-        List<CastMemberEntity> validMembers = castMembers
-            .where((member) => member.memberProfilePath != 'UnknownImage')
-            .toList();
+        var validMembers = excludeCastMembersWithCorruptedImages(castMembers);
         emit(CastMembersSuccess(castMembers: validMembers));
       },
     );

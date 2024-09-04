@@ -30,7 +30,6 @@ class _SearchFieldState extends State<SearchField> {
   Widget build(BuildContext context) {
     return TextField(
       controller: controller,
-      autofocus: true,
       onChanged: searchForMovie,
       decoration: InputDecoration(
         border: border,

@@ -1,8 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movies_app/features/home/domain/usecases/fetch_popular_movies_use_case.dart';
 
 import '../../../../../core/errors/failure.dart';
+import '../../../../../core/utils/functions.dart';
 import '../../../domain/entities/movie_entity.dart';
+import '../../../domain/usecases/fetch_popular_movies_use_case.dart';
 
 part 'popular_movies_state.dart';
 
@@ -19,11 +20,7 @@ class PopularMoviesCubit extends Cubit<PopularMoviesState> {
         emit(PopularMoviesFailure(errorMessage: failure.message));
       },
       (List<MovieEntity> movies) {
-        List<MovieEntity> validMovies = movies
-            .where((movie) =>
-                movie.moviePosterPath != 'UnknownImage' &&
-                movie.movieBackdropPath != 'UnknownImage')
-            .toList();
+        var validMovies = excludeMoviesWithCorruptedImages(movies);
         emit(PopularMoviesSuccess(movies: validMovies));
       },
     );
