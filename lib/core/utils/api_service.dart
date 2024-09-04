@@ -20,6 +20,9 @@ class ApiService {
       queryParameters.addAll(extraParameters);
     }
     log('$baseUrl$endPoint');
+    queryParameters.forEach((key, val) {
+      log('$key: $val');
+    });
     var response = await _dio.get(
       '$baseUrl$endPoint',
       queryParameters: queryParameters,

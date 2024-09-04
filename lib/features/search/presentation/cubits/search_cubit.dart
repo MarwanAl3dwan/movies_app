@@ -10,9 +10,11 @@ class SearchCubit extends Cubit<SearchState> {
   SearchCubit(this.searchUseCase) : super(SearchInitial());
 
   final SearchUseCase searchUseCase;
+  String searchQuery = '';
 
   Future<void> fetchSearchedMovies(String query) async {
     emit(SearchLoading());
+    searchQuery = query;
     var response = await searchUseCase.execute(query);
 
     response.fold(
@@ -32,5 +34,9 @@ class SearchCubit extends Cubit<SearchState> {
         }
       },
     );
+  }
+
+  void emptySearch() {
+    emit(SearchEmpty());
   }
 }

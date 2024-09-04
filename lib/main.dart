@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies_app/features/search/domain/usecases/search_use_case.dart';
+import 'package:movies_app/features/search/presentation/cubits/search_cubit.dart';
 
 import 'core/utils/app_bloc_observer.dart';
 import 'core/utils/app_router.dart';
@@ -56,6 +58,11 @@ class MoviesApp extends StatelessWidget {
         BlocProvider<SimilarMoviesCubit>(
           create: (context) => SimilarMoviesCubit(
             instance<FetchSimilarMoviesUseCase>(),
+          ),
+        ),
+        BlocProvider<SearchCubit>(
+          create: (context) => SearchCubit(
+            instance<SearchUseCase>(),
           ),
         ),
       ],
