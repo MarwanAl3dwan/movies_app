@@ -4,7 +4,6 @@ import 'package:movies_app/features/home/domain/usecases/fetch_popular_movies_us
 import 'package:movies_app/features/home/domain/usecases/fetch_top_rated_movies_use_case.dart';
 import 'package:movies_app/features/movie_details/data/data_sources/movie_details_remote_data_source.dart';
 import 'package:movies_app/features/movie_details/data/repositories_impl/movie_details_repository_impl.dart';
-import 'package:movies_app/features/movie_details/domain/usecases/fetch_movie_details_use_case.dart';
 import 'package:movies_app/features/movie_details/domain/usecases/fetch_similar_movies_use_case.dart';
 
 import '../../features/home/data/data_sources/home_remote_data_source.dart';
@@ -60,11 +59,6 @@ Future<void> initAppModule() async {
     FetchTopRatedMoviesUseCase(
       homeRepository: instance<HomeRepositoryImpl>(),
     ),
-  );
-
-  instance.registerSingleton<FetchMovieDetailsUseCase>(
-    FetchMovieDetailsUseCase(
-        movieDetailsRepository: instance<MovieDetailsRepositoryImpl>()),
   );
 
   instance.registerSingleton<FetchSimilarMoviesUseCase>(

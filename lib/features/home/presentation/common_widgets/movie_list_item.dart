@@ -7,7 +7,6 @@ import '../../../../core/utils/app_router.dart';
 import '../../../../core/utils/assets_manager.dart';
 import '../../../../core/utils/colors_manager.dart';
 import '../../../../core/utils/size_manager.dart';
-import '../../../movie_details/presentation/cubits/movie_details_cubit/movie_details_cubit.dart';
 import '../../domain/entities/movie_entity.dart';
 
 class MovieListItem extends StatelessWidget {
@@ -44,9 +43,6 @@ class MovieListItem extends StatelessWidget {
 
   void _navigateToMovieDetailsView(BuildContext context) {
     GoRouter.of(context).push(AppRouter.movieDetailsView, extra: movieEntity);
-
-    BlocProvider.of<MovieDetailsCubit>(context)
-        .fetchMovieDetails(movieEntity.movieId);
 
     BlocProvider.of<SimilarMoviesCubit>(context)
         .fetchSimilarMovies(movieEntity.movieId);

@@ -15,9 +15,7 @@ import 'features/home/presentation/cubits/top_rated_movies_cubit/top_rated_movie
 import 'features/home/presentation/cubits/trending_movies_cubit/trending_movies_cubit.dart';
 import 'features/home/presentation/views/home/widgets/home_view_header.dart';
 import 'features/home/presentation/views/home/widgets/home_view_section1.dart';
-import 'features/movie_details/domain/usecases/fetch_movie_details_use_case.dart';
 import 'features/movie_details/domain/usecases/fetch_similar_movies_use_case.dart';
-import 'features/movie_details/presentation/cubits/movie_details_cubit/movie_details_cubit.dart';
 import 'features/movie_details/presentation/cubits/similar_movies_cubit/similar_movies_cubit.dart';
 
 void main() async {
@@ -54,11 +52,6 @@ class MoviesApp extends StatelessWidget {
           create: (context) => TopRatedMoviesCubit(
             instance<FetchTopRatedMoviesUseCase>(),
           )..fetchTopRatedMovies(),
-        ),
-        BlocProvider<MovieDetailsCubit>(
-          create: (context) => MovieDetailsCubit(
-            instance<FetchMovieDetailsUseCase>(),
-          ),
         ),
         BlocProvider<SimilarMoviesCubit>(
           create: (context) => SimilarMoviesCubit(
