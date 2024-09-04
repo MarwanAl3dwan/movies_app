@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../../core/common_widgets/custom_app_bar.dart';
-import '../../../../../../core/common_widgets/line_spacer.dart';
+import '../../../../../../core/common_widgets/half_line_spacer.dart';
+
 import '../../../../../../core/utils/size_manager.dart';
 import '../../../../../home/domain/entities/movie_entity.dart';
+import 'cast_member_list_item.dart';
 import 'more_like_this_section_consumer.dart';
-import 'movie_action_buttons.dart';
 import 'movie_backdrop_section.dart';
 import 'movie_genres_list_section.dart';
 import 'movie_language_and_rating_section.dart';
@@ -44,13 +45,15 @@ class MovieDetailsViewBody extends StatelessWidget {
                 const SizedBox(height: SizeManager.s16),
                 MovieOverviewSection(overview: movieEntity.movieOverview),
                 const SizedBox(height: SizeManager.s20),
-                const MovieActionButtons(),
                 const SizedBox(height: SizeManager.s20),
-                LineSpacer(
-                  width: MediaQuery.of(context).size.width / 2,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: SizeManager.s14),
+                const HalfLineSpacer(),
+                const SizedBox(height: SizeManager.s20),
+                const Padding(
+                  padding: EdgeInsets.only(left: SizeManager.s14),
+                  child: CastMemberListItem(),
                 ),
+                const SizedBox(height: SizeManager.s20),
+                const HalfLineSpacer(),
                 const SizedBox(height: SizeManager.s20),
                 MoreLikeThisSectionConsumer(movieId: movieEntity.movieId),
               ],

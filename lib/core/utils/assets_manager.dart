@@ -14,4 +14,5 @@ abstract class AssetsManager {
   static const hd = '$imagesPath/HD.png';
   static const plusMath = '$imagesPath/plus-math.png';
   static const share = '$imagesPath/Share.png';
+  static const castMemberPoster = '$imagesPath/cast-member-poster.jpg';
 }
