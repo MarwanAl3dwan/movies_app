@@ -10,14 +10,19 @@ class ApiService {
 
   ApiService(this._dio);
 
-  Future<Map<String, dynamic>> get({required String endPoint}) async {
+  Future<Map<String, dynamic>> get(
+      {required String endPoint, Map<String, dynamic>? extraParameters}) async {
+    Map<String, dynamic> queryParameters = {
+      'language': 'en-US',
+      'page': 1,
+    };
+    if (extraParameters != null) {
+      queryParameters.addAll(extraParameters);
+    }
     log('$baseUrl$endPoint');
     var response = await _dio.get(
       '$baseUrl$endPoint',
-      queryParameters: {
-        'language': 'en-US',
-        'page': 1,
-      },
+      queryParameters: queryParameters,
       options: Options(
         headers: {
           'accept': 'application/json',

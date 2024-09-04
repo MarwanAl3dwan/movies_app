@@ -5,7 +5,7 @@ import '../../../../core/usecase/base_use_case.dart';
 import '../entities/movie_entity.dart';
 import '../repositories/home_repository.dart';
 
-class FetchTrendingMoviesUseCase extends BaseUseCase {
+class FetchTrendingMoviesUseCase extends BaseUseCase<void, List<MovieEntity>> {
   final HomeRepository homeRepository;
 
   FetchTrendingMoviesUseCase({required this.homeRepository});

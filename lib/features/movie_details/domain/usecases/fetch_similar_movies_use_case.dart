@@ -5,12 +5,12 @@ import '../../../../core/usecase/base_use_case.dart';
 import '../../../home/domain/entities/movie_entity.dart';
 import '../repositories/movie_details_repository.dart';
 
-class FetchSimilarMoviesUseCase extends BaseUseCase {
+class FetchSimilarMoviesUseCase extends BaseUseCase<int, List<MovieEntity>> {
   final MovieDetailsRepository movieDetailsRepository;
 
   FetchSimilarMoviesUseCase({required this.movieDetailsRepository});
   @override
-  Future<Either<Failure, List<MovieEntity>>> execute([param]) {
+  Future<Either<Failure, List<MovieEntity>>> execute(int param) {
     return movieDetailsRepository.fetchSimilarMovies(param);
   }
 }
