@@ -7,20 +7,23 @@ import '../../../domain/usecases/fetch_cast_members_use_case.dart';
 part 'cast_members_state.dart';
 
 class CastMembersCubit extends Cubit<CastMembersState> {
-  CastMembersCubit(this.fetchCastMembersUseCase) : super(CastMembersInitial());
+  CastMembersCubit(this._fetchCastMembersUseCase) : super(CastMembersInitial());
 
-  final FetchCastMembersUseCase fetchCastMembersUseCase;
+  final FetchCastMembersUseCase _fetchCastMembersUseCase;
 
   Future<void> fetchCastMembers(int movieId) async {
     emit(CastMembersLoading());
-    var response = await fetchCastMembersUseCase.execute(movieId);
+    var response = await _fetchCastMembersUseCase.execute(movieId);
 
     response.fold(
       (Failure failure) {
         emit(CastMembersFailure(errorMessage: failure.message));
       },
       (List<CastMemberEntity> castMembers) {
-        emit(CastMembersSuccess(castMembers: castMembers));
+        List<CastMemberEntity> validMembers = castMembers
+            .where((member) => member.memberProfilePath != 'UnknownImage')
+            .toList();
+        emit(CastMembersSuccess(castMembers: validMembers));
       },
     );
   }

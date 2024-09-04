@@ -5,7 +5,11 @@ import '../../../../../../core/utils/size_manager.dart';
 import '../../../../../../core/utils/styles_manager.dart';
 
 class CastMemberNameSection extends StatelessWidget {
-  const CastMemberNameSection({super.key});
+  const CastMemberNameSection(
+      {super.key, required this.name, required this.characterName});
+
+  final String name;
+  final String characterName;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +20,7 @@ class CastMemberNameSection extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Morgan Freeman',
+            name,
             style: StylesManager.textStyle14.copyWith(
               color: ColorsManager.primary,
               fontWeight: FontWeight.bold,
@@ -24,7 +28,7 @@ class CastMemberNameSection extends StatelessWidget {
             ),
           ),
           Text(
-            "Ellis Boyd",
+            characterName,
             style: StylesManager.textStyle13.copyWith(
               color: ColorsManager.primary,
               overflow: TextOverflow.ellipsis,

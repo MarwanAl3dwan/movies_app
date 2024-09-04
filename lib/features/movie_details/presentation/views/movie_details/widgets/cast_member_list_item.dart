@@ -3,10 +3,13 @@ import 'package:flutter/material.dart';
 import '../../../../../../core/utils/assets_manager.dart';
 import '../../../../../../core/utils/colors_manager.dart';
 import '../../../../../../core/utils/size_manager.dart';
+import '../../../../domain/entities/cast_member_entity.dart';
 import 'cast_member_name_section.dart';
 
 class CastMemberListItem extends StatelessWidget {
-  const CastMemberListItem({super.key});
+  const CastMemberListItem({super.key, required this.castMember});
+
+  final CastMemberEntity castMember;
 
   final BorderRadiusGeometry topRadius = const BorderRadius.only(
     topLeft: Radius.circular(SizeManager.s16),
@@ -34,8 +37,8 @@ class CastMemberListItem extends StatelessWidget {
                 flex: 6,
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width,
-                  child: Image.asset(
-                    AssetsManager.castMemberPoster,
+                  child: Image.network(
+                    '${AssetsManager.imageUrl}${castMember.memberProfilePath}',
                     fit: BoxFit.fill,
                   ),
                 ),
@@ -45,7 +48,10 @@ class CastMemberListItem extends StatelessWidget {
                 child: Container(
                   width: MediaQuery.of(context).size.width,
                   color: ColorsManager.secondary,
-                  child: const CastMemberNameSection(),
+                  child: CastMemberNameSection(
+                    name: castMember.memberName,
+                    characterName: castMember.characterName,
+                  ),
                 ),
               ),
             ],

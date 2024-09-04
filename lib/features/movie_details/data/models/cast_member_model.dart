@@ -30,8 +30,8 @@ class CastMemberModel extends CastMemberEntity {
   }) : super(
           memberId: id!,
           memberName: name ?? 'Unknown',
-          memberProfilePath: 'Unknown',
-          characterName: 'Unknown',
+          memberProfilePath: profilePath ?? 'UnknownImage',
+          characterName: character ?? 'Unknown',
         );
 
   factory CastMemberModel.fromJson(Map<String, dynamic> json) {

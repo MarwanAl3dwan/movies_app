@@ -8,7 +8,7 @@ import 'more_like_this_section_consumer.dart';
 import 'movie_backdrop_section.dart';
 import 'movie_description_section.dart';
 import 'movie_title_section.dart';
-import 'top_cast_billed_section.dart';
+import 'top_cast_billed_section_consumer.dart';
 
 class MovieDetailsViewBody extends StatelessWidget {
   const MovieDetailsViewBody({super.key, required this.movieEntity});
@@ -33,7 +33,7 @@ class MovieDetailsViewBody extends StatelessWidget {
                 const SizedBox(height: SizeManager.s20),
                 const HalfLineSpacer(),
                 const SizedBox(height: SizeManager.s20),
-                const TopCastBilledSection(),
+                TopCastBilledSectionConsumer(movieId: movieEntity.movieId),
                 const SizedBox(height: SizeManager.s20),
                 const HalfLineSpacer(),
                 const SizedBox(height: SizeManager.s20),
