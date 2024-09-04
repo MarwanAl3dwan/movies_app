@@ -5,6 +5,9 @@ import 'package:movies_app/features/home/domain/usecases/fetch_top_rated_movies_
 import 'package:movies_app/features/movie_details/data/data_sources/movie_details_remote_data_source.dart';
 import 'package:movies_app/features/movie_details/data/repositories_impl/movie_details_repository_impl.dart';
 import 'package:movies_app/features/movie_details/domain/usecases/fetch_similar_movies_use_case.dart';
+import 'package:movies_app/features/search/data/data_sources/search_remote_data_source.dart';
+import 'package:movies_app/features/search/data/repository_impl/search_repository_impl.dart';
+import 'package:movies_app/features/search/domain/usecases/search_use_case.dart';
 
 import '../../features/home/data/data_sources/home_remote_data_source.dart';
 import '../../features/home/data/repositories_impl/home_repository_impl.dart';
@@ -64,5 +67,18 @@ Future<void> initAppModule() async {
   instance.registerSingleton<FetchSimilarMoviesUseCase>(
     FetchSimilarMoviesUseCase(
         movieDetailsRepository: instance<MovieDetailsRepositoryImpl>()),
+  );
+
+  instance.registerSingleton<SearchRemoteDataSourceImpl>(
+    SearchRemoteDataSourceImpl(apiService: instance<ApiService>()),
+  );
+
+  instance.registerSingleton<SearchRepositoryImpl>(
+    SearchRepositoryImpl(
+        searchRemoteDataSource: instance<SearchRemoteDataSourceImpl>()),
+  );
+
+  instance.registerSingleton<SearchUseCase>(
+    SearchUseCase(searchRepository: instance<SearchRepositoryImpl>()),
   );
 }
