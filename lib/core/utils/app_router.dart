@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movies_app/features/home/domain/entities/movie_entity.dart';
 import 'package:movies_app/features/movie_details/presentation/views/similar_movies/similar_movies_view.dart';
+import 'package:movies_app/features/search/presentation/views/search_view.dart';
 
 import '../../features/home/presentation/views/home/home_view.dart';
 import '../../features/home/presentation/views/popular_movies/popular_movies_view.dart';
@@ -17,6 +18,7 @@ abstract class AppRouter {
   static const String topRatedView = '/topRatedView';
   static const String movieDetailsView = '/movieDetailsView';
   static const String similarMoviesView = '/similarMoviesView';
+  static const String searchView = '/searchView';
 
   static final router = GoRouter(
     routes: [
@@ -70,6 +72,14 @@ abstract class AppRouter {
           context: context,
           state: state,
           child: SimilarMoviesView(movieId: state.extra as int),
+        ),
+      ),
+      GoRoute(
+        path: searchView,
+        pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+          context: context,
+          state: state,
+          child: const SearchView(),
         ),
       ),
     ],

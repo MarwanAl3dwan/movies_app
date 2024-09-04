@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:movies_app/core/utils/colors_manager.dart';
 import 'package:movies_app/core/utils/size_manager.dart';
 
+import '../../../../../../core/utils/app_router.dart';
 import '../../../../../../core/utils/assets_manager.dart';
 
 class HomeViewAppBar extends StatelessWidget {
@@ -19,7 +21,9 @@ class HomeViewAppBar extends StatelessWidget {
             Row(
               children: [
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    _navigateToSearchView(context);
+                  },
                   icon: const Icon(
                     Icons.search,
                     size: SizeManager.s50,
@@ -33,5 +37,9 @@ class HomeViewAppBar extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _navigateToSearchView(BuildContext context) {
+    GoRouter.of(context).push(AppRouter.searchView);
   }
 }
