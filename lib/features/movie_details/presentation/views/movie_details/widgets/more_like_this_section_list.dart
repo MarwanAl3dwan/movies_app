@@ -15,7 +15,7 @@ class MoreLikeThisList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 210,
+      height: SizeManager.s210,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: (movies.length / 2).floor(),

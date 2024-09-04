@@ -1,6 +1,6 @@
-import 'package:movies_app/core/utils/api_service.dart';
-import 'package:movies_app/features/home/data/models/movie_model.dart';
-import 'package:movies_app/features/home/domain/entities/movie_entity.dart';
+import '../../../../core/utils/api_service.dart';
+import '../../../../core/utils/functions.dart';
+import '../../domain/entities/movie_entity.dart';
 
 abstract class HomeRemoteDataSource {
   Future<List<MovieEntity>> fetchNowPlayingMovies();
@@ -19,7 +19,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
     const nowPlayingMoviesEndPoint = '/movie/now_playing';
     Map<String, dynamic> data =
         await apiService.get(endPoint: nowPlayingMoviesEndPoint);
-    List<MovieEntity> nowPlayingMoviesList = _getMoviesList(data);
+    List<MovieEntity> nowPlayingMoviesList = getMoviesList(data);
     return nowPlayingMoviesList;
   }
 
@@ -29,7 +29,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
     const trendingMoviesEndPoint = '/trending/movie/$timeWindow';
     Map<String, dynamic> data =
         await apiService.get(endPoint: trendingMoviesEndPoint);
-    List<MovieEntity> trendingMoviesList = _getMoviesList(data);
+    List<MovieEntity> trendingMoviesList = getMoviesList(data);
     return trendingMoviesList;
   }
 
@@ -38,7 +38,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
     const popularMoviesEndPoint = '/movie/popular';
     Map<String, dynamic> data =
         await apiService.get(endPoint: popularMoviesEndPoint);
-    List<MovieEntity> popularMoviesList = _getMoviesList(data);
+    List<MovieEntity> popularMoviesList = getMoviesList(data);
     return popularMoviesList;
   }
 
@@ -47,15 +47,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
     const topRatedMoviesEndPoint = '/movie/top_rated';
     Map<String, dynamic> data =
         await apiService.get(endPoint: topRatedMoviesEndPoint);
-    List<MovieEntity> topRatedMoviesList = _getMoviesList(data);
+    List<MovieEntity> topRatedMoviesList = getMoviesList(data);
     return topRatedMoviesList;
-  }
-
-  List<MovieEntity> _getMoviesList(Map<String, dynamic> data) {
-    List<MovieEntity> movies = [];
-    for (var movie in data['results']) {
-      movies.add(MovieModel.fromJson(movie));
-    }
-    return movies;
   }
 }

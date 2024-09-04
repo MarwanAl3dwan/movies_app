@@ -24,7 +24,7 @@ class HomeViewHeader extends StatelessWidget {
                   HomeViewAppBar(),
                   Spacer(),
                   Text('Now Playing', style: StylesManager.textStyle32),
-                  SizedBox(height: 10),
+                  SizedBox(height: SizeManager.s10),
                 ],
               ),
             ],

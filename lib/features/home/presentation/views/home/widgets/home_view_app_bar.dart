@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:movies_app/core/utils/colors_manager.dart';
-import 'package:movies_app/core/utils/size_manager.dart';
 
 import '../../../../../../core/utils/app_router.dart';
 import '../../../../../../core/utils/assets_manager.dart';
+import '../../../../../../core/utils/colors_manager.dart';
+import '../../../../../../core/utils/size_manager.dart';
 
 class HomeViewAppBar extends StatelessWidget {
   const HomeViewAppBar({super.key});

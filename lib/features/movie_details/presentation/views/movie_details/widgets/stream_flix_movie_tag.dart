@@ -10,7 +10,7 @@ class StreamFlixMovieTag extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Image.asset(AssetsManager.splashLogo, width: 30),
+        Image.asset(AssetsManager.splashLogo, width: SizeManager.s30),
         const SizedBox(width: SizeManager.s3),
         const Text('M  O  V  I  E'),
       ],

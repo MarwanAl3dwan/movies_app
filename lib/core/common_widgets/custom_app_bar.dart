@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:movies_app/core/utils/colors_manager.dart';
 
 import '../utils/assets_manager.dart';
+import '../utils/colors_manager.dart';
 import '../utils/size_manager.dart';
 
 class CustomAppBar extends StatelessWidget {
@@ -20,7 +20,7 @@ class CustomAppBar extends StatelessWidget {
               onPressed: () {
                 GoRouter.of(context).pop();
               },
-              icon: const Icon(Icons.arrow_back, size: 45),
+              icon: const Icon(Icons.arrow_back, size: SizeManager.s45),
               color: ColorsManager.secondary,
             ),
             Image.asset(AssetsManager.profileImage),

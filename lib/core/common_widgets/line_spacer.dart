@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../utils/colors_manager.dart';
+import '../utils/size_manager.dart';
 
 class LineSpacer extends StatelessWidget {
   const LineSpacer({super.key, this.width, this.color, this.padding});
@@ -15,7 +16,7 @@ class LineSpacer extends StatelessWidget {
       padding: padding ?? EdgeInsets.zero,
       child: Container(
         width: width ?? MediaQuery.of(context).size.width,
-        height: 2,
+        height: SizeManager.s2,
         color: color ?? ColorsManager.red,
       ),
     );

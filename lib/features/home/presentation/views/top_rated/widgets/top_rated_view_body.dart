@@ -17,7 +17,7 @@ class TopRatedViewBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CustomAppBar(),
-          SizedBox(height: 10),
+          SizedBox(height: SizeManager.s10),
           LineSpacer(),
           SizedBox(height: SizeManager.s10),
           Text('Top Rated Movies', style: StylesManager.textStyle22),

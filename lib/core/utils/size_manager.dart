@@ -1,5 +1,6 @@
 abstract class SizeManager {
   static const double s1 = 1;
+  static const double s2 = 2;
   static const double s3 = 3;
   static const double s4 = 4;
   static const double s5 = 5;
@@ -12,10 +13,16 @@ abstract class SizeManager {
   static const double s16 = 16;
   static const double s18 = 18;
   static const double s20 = 20;
+  static const double s27 = 27;
   static const double s25 = 25;
+  static const double s35 = 35;
   static const double s30 = 30;
+  static const double s45 = 45;
   static const double s50 = 50;
   static const double s55 = 55;
+  static const double s100 = 100;
   static const double s120 = 120;
+  static const double s140 = 140;
   static const double s130 = 130;
+  static const double s210 = 210;
 }

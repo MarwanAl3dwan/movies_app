@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movies_app/features/home/presentation/common_widgets/movies_grid_view_loading.dart';
 
 import '../../../../domain/entities/movie_entity.dart';
+import '../../../common_widgets/movies_grid_view_loading.dart';
 import '../../../cubits/popular_movies_cubit/popular_movies_cubit.dart';
 import '../../../common_widgets/movies_grid_view.dart';
 

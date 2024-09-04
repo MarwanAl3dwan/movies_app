@@ -10,7 +10,7 @@ class MovieListItemLoading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 210,
+      height: SizeManager.s210,
       child: AspectRatio(
         aspectRatio: 1 / 1.5,
         child: ClipRRect(

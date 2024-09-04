@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/features/home/presentation/common_widgets/movie_list_item_loading.dart';
 
 import '../../../../../../core/utils/size_manager.dart';
+import '../../../common_widgets/movie_list_item_loading.dart';
 
 class HomeViewSection1LoadingList extends StatelessWidget {
   const HomeViewSection1LoadingList({super.key});

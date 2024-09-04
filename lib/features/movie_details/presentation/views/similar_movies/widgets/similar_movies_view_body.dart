@@ -19,7 +19,7 @@ class SimilarMoviesViewBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const CustomAppBar(),
-          const SizedBox(height: 10),
+          const SizedBox(height: SizeManager.s10),
           const LineSpacer(),
           const SizedBox(height: SizeManager.s10),
           const Text('More Like This', style: StylesManager.textStyle22),

@@ -9,7 +9,7 @@ class HomeViewSection3LoadingList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 210,
+      height: SizeManager.s210,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: 5,

@@ -1,6 +1,7 @@
 import 'package:country_flags/country_flags.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../../core/utils/size_manager.dart';
 import '../../../../../../core/utils/styles_manager.dart';
 
 class MovieLanguage extends StatelessWidget {
@@ -15,8 +16,8 @@ class MovieLanguage extends StatelessWidget {
         const Text('Lang: ', style: StylesManager.textStyle20),
         CountryFlag.fromLanguageCode(
           lang,
-          height: 25,
-          width: 45,
+          height: SizeManager.s25,
+          width: SizeManager.s45,
         ),
       ],
     );

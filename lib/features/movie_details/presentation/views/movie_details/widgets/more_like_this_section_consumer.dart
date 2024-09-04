@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -39,7 +37,6 @@ class _MoreLikeThisSectionConsumerState
       },
       builder: (context, state) {
         if (state is SimiLarMoviesSuccess) {
-          log(movies.length.toString());
           return MoreLikeThisSection(
             similarMovies: movies,
             movieId: widget.movieId,

@@ -1,5 +1,5 @@
 import '../../../../core/utils/api_service.dart';
-import '../../../home/data/models/movie_model.dart';
+import '../../../../core/utils/functions.dart';
 import '../../../home/domain/entities/movie_entity.dart';
 
 abstract class SearchRemoteDataSource {
@@ -16,16 +16,8 @@ class SearchRemoteDataSourceImpl extends SearchRemoteDataSource {
     const searchEndPoint = '/search/movie';
     Map<String, dynamic> data = await apiService
         .get(endPoint: searchEndPoint, extraParameters: {'query': query});
-    List<MovieEntity> movies = _getMoviesList(data);
+    List<MovieEntity> movies = getMoviesList(data);
 
-    return movies;
-  }
-
-  List<MovieEntity> _getMoviesList(Map<String, dynamic> data) {
-    List<MovieEntity> movies = [];
-    for (var movie in data['results']) {
-      movies.add(MovieModel.fromJson(movie));
-    }
     return movies;
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/features/home/domain/entities/movie_entity.dart';
 
+import '../../../../home/domain/entities/movie_entity.dart';
 import 'widgets/movie_details_view_body.dart';
 
 class MovieDetailsView extends StatefulWidget {

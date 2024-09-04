@@ -23,7 +23,7 @@ class MovieListItem extends StatelessWidget {
         _navigateToMovieDetailsView(context);
       },
       child: Container(
-        height: 210,
+        height: SizeManager.s210,
         decoration: BoxDecoration(
           border: Border.all(color: ColorsManager.secondary, width: 0.2),
           borderRadius: BorderRadius.circular(SizeManager.s16),

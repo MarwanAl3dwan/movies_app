@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:movies_app/features/home/domain/entities/movie_entity.dart';
-import 'package:movies_app/features/movie_details/presentation/views/similar_movies/similar_movies_view.dart';
-import 'package:movies_app/features/search/presentation/views/search_view.dart';
 
+import '../../features/home/domain/entities/movie_entity.dart';
 import '../../features/home/presentation/views/home/home_view.dart';
 import '../../features/home/presentation/views/popular_movies/popular_movies_view.dart';
 import '../../features/home/presentation/views/top_rated/top_rated_view.dart';
 import '../../features/home/presentation/views/trending_now/trending_now_view.dart';
 import '../../features/movie_details/presentation/views/movie_details/movie_details_view.dart';
+import '../../features/movie_details/presentation/views/similar_movies/similar_movies_view.dart';
+import '../../features/search/presentation/views/search_view.dart';
 import '../../features/splash/presentation/views/splash_view.dart';
 
 abstract class AppRouter {

@@ -23,8 +23,8 @@ class CastMemberListItem extends StatelessWidget {
         _navigateToMovieDetailsView(context);
       },
       child: Container(
-        height: 210,
-        width: 140,
+        height: SizeManager.s210,
+        width: SizeManager.s140,
         decoration: BoxDecoration(
           border: Border.all(color: ColorsManager.secondary, width: 0.2),
           borderRadius: topRadius,

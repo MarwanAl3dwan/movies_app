@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/core/utils/styles_manager.dart';
 
+import '../../../../../core/utils/styles_manager.dart';
 import 'splash_view_logo.dart';
 
 class SplashViewBody extends StatelessWidget {

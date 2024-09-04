@@ -3,11 +3,7 @@ import 'package:flutter/material.dart';
 import '../utils/size_manager.dart';
 
 class GestureText extends StatelessWidget {
-  const GestureText({
-    super.key,
-    required this.text,
-    this.onTap,
-  });
+  const GestureText({super.key, required this.text, this.onTap});
 
   final String text;
   final void Function()? onTap;
