@@ -18,9 +18,7 @@ class MoreLikeThisLoadingSection extends StatelessWidget {
           SizedBox(height: SizeManager.s10),
           MoreLikeThisLoadingList(),
           SizedBox(height: SizeManager.s4),
-          Text(
-            'See More',
-          ),
+          Align(alignment: Alignment.centerRight, child: Text('See More')),
           SizedBox(height: SizeManager.s10),
         ],
       ),

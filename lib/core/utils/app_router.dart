@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:movies_app/features/home/domain/entities/movie_entity.dart';
 import 'package:movies_app/features/movie_details/presentation/views/similar_movies/similar_movies_view.dart';
 
 import '../../features/home/presentation/views/home/home_view.dart';
@@ -60,7 +61,7 @@ abstract class AppRouter {
         pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
           context: context,
           state: state,
-          child: const MovieDetailsView(),
+          child: MovieDetailsView(movieEntity: state.extra as MovieEntity),
         ),
       ),
       GoRoute(
@@ -68,7 +69,7 @@ abstract class AppRouter {
         pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
           context: context,
           state: state,
-          child: SimilarMoviesView(extraParam: state.extra),
+          child: SimilarMoviesView(movieId: state.extra as int),
         ),
       ),
     ],
