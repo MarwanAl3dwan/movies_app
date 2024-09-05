@@ -3,7 +3,7 @@ import '../../../../core/utils/functions.dart';
 import '../../../home/domain/entities/movie_entity.dart';
 
 abstract class SearchRemoteDataSource {
-  Future<List<MovieEntity>> fetchSearchedMovies(String query);
+  Future<List<MovieEntity>> fetchMovieSearch(String query);
 }
 
 class SearchRemoteDataSourceImpl extends SearchRemoteDataSource {
@@ -12,7 +12,7 @@ class SearchRemoteDataSourceImpl extends SearchRemoteDataSource {
   SearchRemoteDataSourceImpl({required this.apiService});
 
   @override
-  Future<List<MovieEntity>> fetchSearchedMovies(String query) async {
+  Future<List<MovieEntity>> fetchMovieSearch(String query) async {
     const searchEndPoint = '/search/movie';
     Map<String, dynamic> data = await apiService
         .get(endPoint: searchEndPoint, extraParameters: {'query': query});

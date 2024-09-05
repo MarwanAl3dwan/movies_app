@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/utils/size_manager.dart';
-import '../../cubits/search_cubit.dart';
+import '../../cubits/movie_search_cubit/movie_search_cubit.dart';
 import 'search_field.dart';
 import 'movie_search_grid_view_consumer.dart';
 
@@ -39,9 +39,9 @@ class _MovieSearchTabBarViewState extends State<MovieSearchTabBarView> {
 
   void searchForPerson(String query) {
     if (query.isEmpty) {
-      BlocProvider.of<SearchCubit>(context).emptySearch();
+      BlocProvider.of<MovieSearchCubit>(context).emptySearch();
     } else {
-      BlocProvider.of<SearchCubit>(context).fetchSearchedMovies(query);
+      BlocProvider.of<MovieSearchCubit>(context).fetchSearchedMovies(query);
     }
   }
 }

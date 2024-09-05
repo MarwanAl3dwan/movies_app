@@ -12,11 +12,11 @@ class SearchRepositoryImpl extends SearchRepository {
   SearchRepositoryImpl({required this.searchRemoteDataSource});
 
   @override
-  Future<Either<Failure, List<MovieEntity>>> fetchSearchedMovies(
+  Future<Either<Failure, List<MovieEntity>>> fetchMovieSearch(
       String query) async {
     try {
       List<MovieEntity> movies =
-          await searchRemoteDataSource.fetchSearchedMovies(query);
+          await searchRemoteDataSource.fetchMovieSearch(query);
       return right(movies);
     } on DioException catch (e) {
       return left(ServerFailure.fromDioException(e));
