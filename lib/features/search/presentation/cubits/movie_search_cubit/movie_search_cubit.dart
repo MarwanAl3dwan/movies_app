@@ -8,15 +8,15 @@ import '../../../domain/usecases/movie_search_use_case.dart';
 part 'movie_search_state.dart';
 
 class MovieSearchCubit extends Cubit<MovieSearchState> {
-  MovieSearchCubit(this.searchUseCase) : super(MovieSearchInitial());
+  MovieSearchCubit(this.movieSearchUseCase) : super(MovieSearchInitial());
 
-  final MovieSearchUseCase searchUseCase;
+  final MovieSearchUseCase movieSearchUseCase;
   String searchQuery = '';
 
   Future<void> fetchSearchedMovies(String query) async {
     emit(MovieSearchLoading());
     searchQuery = query;
-    var response = await searchUseCase.execute(query);
+    var response = await movieSearchUseCase.execute(query);
 
     response.fold(
       (Failure failure) {

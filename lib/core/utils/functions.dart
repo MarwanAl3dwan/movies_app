@@ -14,6 +14,14 @@ List<MovieEntity> excludeMoviesWithCorruptedImages(List<MovieEntity> movies) {
   return validMovies;
 }
 
+List<PersonEntity> excludePersonsWithCorruptedImages(
+    List<PersonEntity> persons) {
+  List<PersonEntity> validMovies = persons
+      .where((person) => person.personProfilePath != 'UnknownImage')
+      .toList();
+  return validMovies;
+}
+
 List<CastMemberEntity> excludeCastMembersWithCorruptedImages(
     List<CastMemberEntity> castMembers) {
   List<CastMemberEntity> validMembers = castMembers

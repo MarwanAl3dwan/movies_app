@@ -14,6 +14,7 @@ import '../../features/movie_details/domain/usecases/fetch_similar_movies_use_ca
 import '../../features/search/data/data_sources/search_remote_data_source.dart';
 import '../../features/search/data/repository_impl/search_repository_impl.dart';
 import '../../features/search/domain/usecases/movie_search_use_case.dart';
+import '../../features/search/domain/usecases/person_search_use_case.dart';
 import 'api_service.dart';
 
 final GetIt instance = GetIt.instance;
@@ -86,5 +87,9 @@ Future<void> initAppModule() async {
   instance.registerSingleton<FetchCastMembersUseCase>(
     FetchCastMembersUseCase(
         movieDetailsRepository: instance<MovieDetailsRepositoryImpl>()),
+  );
+
+  instance.registerSingleton<PersonSearchUseCase>(
+    PersonSearchUseCase(searchRepository: instance<SearchRepositoryImpl>()),
   );
 }

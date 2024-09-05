@@ -27,7 +27,7 @@ class PersonModel extends PersonEntity {
           personId: id!,
           personKnownForDepartment: knownForDepartment ?? 'Unknown',
           personName: name ?? 'Unknown',
-          personProfilePath: profilePath ?? 'Unknown',
+          personProfilePath: profilePath ?? 'UnknownImage',
           personKnownFor: knownFor ?? [],
         );
 
