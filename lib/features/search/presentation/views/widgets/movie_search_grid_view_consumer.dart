@@ -6,16 +6,16 @@ import '../../../../home/presentation/common_widgets/movies_grid_view.dart';
 import '../../../../home/presentation/common_widgets/movies_grid_view_loading.dart';
 import '../../cubits/search_cubit.dart';
 
-class SearchMoviesGridViewConsumer extends StatefulWidget {
-  const SearchMoviesGridViewConsumer({super.key});
+class MovieSearchGridViewConsumer extends StatefulWidget {
+  const MovieSearchGridViewConsumer({super.key});
 
   @override
-  State<SearchMoviesGridViewConsumer> createState() =>
-      _SearchMoviesGridViewConsumerState();
+  State<MovieSearchGridViewConsumer> createState() =>
+      _MovieSearchGridViewConsumerState();
 }
 
-class _SearchMoviesGridViewConsumerState
-    extends State<SearchMoviesGridViewConsumer> {
+class _MovieSearchGridViewConsumerState
+    extends State<MovieSearchGridViewConsumer> {
   final List<MovieEntity> movies = [];
 
   @override

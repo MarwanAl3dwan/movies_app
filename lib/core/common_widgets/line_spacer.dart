@@ -16,7 +16,7 @@ class LineSpacer extends StatelessWidget {
       padding: padding ?? EdgeInsets.zero,
       child: Container(
         width: width ?? MediaQuery.of(context).size.width,
-        height: SizeManager.s2,
+        height: SizeManager.s3,
         color: color ?? ColorsManager.red,
       ),
     );

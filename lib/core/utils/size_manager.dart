@@ -20,6 +20,7 @@ abstract class SizeManager {
   static const double s45 = 45;
   static const double s50 = 50;
   static const double s55 = 55;
+  static const double s85 = 85;
   static const double s100 = 100;
   static const double s120 = 120;
   static const double s140 = 140;

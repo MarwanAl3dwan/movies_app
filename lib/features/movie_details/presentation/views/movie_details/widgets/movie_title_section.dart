@@ -13,9 +13,8 @@ class MovieTitleSection extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: SizeManager.s14),
       child: Wrap(
-        alignment: WrapAlignment.start, // Align the wrap to start
-        crossAxisAlignment:
-            WrapCrossAlignment.start, // Align items to start of the cross axis
+        alignment: WrapAlignment.start,
+        crossAxisAlignment: WrapCrossAlignment.start,
         children: [
           Text(
             title,

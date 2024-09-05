@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/utils/colors_manager.dart';
 import '../../../../../core/utils/size_manager.dart';
-import '../../cubits/search_cubit.dart';
 
 class SearchField extends StatefulWidget {
-  const SearchField({super.key});
+  const SearchField({
+    super.key,
+    required this.controller,
+    this.searchAction,
+  });
+
+  final TextEditingController controller;
+  final Function(String)? searchAction;
 
   @override
   State<SearchField> createState() => _SearchFieldState();
@@ -18,19 +23,11 @@ class _SearchFieldState extends State<SearchField> {
     borderSide: const BorderSide(color: ColorsManager.secondary),
   );
 
-  late TextEditingController controller;
-
-  @override
-  void initState() {
-    controller = TextEditingController();
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return TextField(
-      controller: controller,
-      onChanged: searchForMovie,
+      controller: widget.controller,
+      onChanged: widget.searchAction,
       decoration: InputDecoration(
         border: border,
         enabledBorder: border,
@@ -41,17 +38,9 @@ class _SearchFieldState extends State<SearchField> {
     );
   }
 
-  void searchForMovie(String query) {
-    if (query.isEmpty) {
-      BlocProvider.of<SearchCubit>(context).emptySearch();
-    } else {
-      BlocProvider.of<SearchCubit>(context).fetchSearchedMovies(query);
-    }
-  }
-
   @override
   void dispose() {
-    controller.dispose();
+    widget.controller.dispose();
     super.dispose();
   }
 }
