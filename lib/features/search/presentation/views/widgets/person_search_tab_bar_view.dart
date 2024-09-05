@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies_app/features/home/presentation/common_widgets/movies_grid_view_loading.dart';
 
 import '../../../../../core/utils/colors_manager.dart';
 import '../../../../../core/utils/size_manager.dart';
+import '../../../domain/entities/person_entity.dart';
+import '../../cubits/person_search_cubit/person_search_cubit.dart';
 import 'person_search_list.dart';
 
 class PersonSearchTabBarView extends StatefulWidget {
-  const PersonSearchTabBarView({
-    super.key,
-  });
+  const PersonSearchTabBarView({super.key});
 
   @override
   State<PersonSearchTabBarView> createState() => _PersonSearchTabBarViewState();
@@ -44,16 +46,51 @@ class _PersonSearchTabBarViewState extends State<PersonSearchTabBarView> {
           ),
         ),
         const SizedBox(height: SizeManager.s10),
-        const PersonSearchList(),
+        const PersonSearchListConsumer(),
       ],
     );
   }
 
   void searchForPerson(String query) {
-    // if (query.isEmpty) {
-    //   BlocProvider.of<SearchCubit>(context).emptySearch();
-    // } else {
-    //   BlocProvider.of<SearchCubit>(context).fetchSearchedMovies(query);
-    // }
+    if (query.isEmpty) {
+      BlocProvider.of<PersonSearchCubit>(context).emptySearch();
+    } else {
+      BlocProvider.of<PersonSearchCubit>(context).fetchPersonSearch(query);
+    }
+  }
+}
+
+class PersonSearchListConsumer extends StatefulWidget {
+  const PersonSearchListConsumer({super.key});
+
+  @override
+  State<PersonSearchListConsumer> createState() =>
+      _PersonSearchListConsumerState();
+}
+
+class _PersonSearchListConsumerState extends State<PersonSearchListConsumer> {
+  final List<PersonEntity> persons = [];
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocConsumer<PersonSearchCubit, PersonSearchState>(
+      listener: (context, state) {
+        if (state is PersonSearchSuccess) {
+          persons.clear();
+          persons.addAll(state.persons);
+        }
+      },
+      builder: (context, state) {
+        if (state is PersonSearchSuccess) {
+          return PersonSearchList(persons: persons);
+        } else if (state is PersonSearchFailure) {
+          return Center(child: Text(state.errorMessage));
+        } else if (state is PersonSearchEmpty || state is PersonSearchInitial) {
+          return const SizedBox();
+        } else {
+          return const MoviesGridViewLoading();
+        }
+      },
+    );
   }
 }

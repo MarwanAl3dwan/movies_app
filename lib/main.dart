@@ -20,7 +20,9 @@ import 'features/movie_details/domain/usecases/fetch_similar_movies_use_case.dar
 import 'features/movie_details/presentation/cubits/cast_members_cubit/cast_members_cubit.dart';
 import 'features/movie_details/presentation/cubits/similar_movies_cubit/similar_movies_cubit.dart';
 import 'features/search/domain/usecases/movie_search_use_case.dart';
+import 'features/search/domain/usecases/person_search_use_case.dart';
 import 'features/search/presentation/cubits/movie_search_cubit/movie_search_cubit.dart';
+import 'features/search/presentation/cubits/person_search_cubit/person_search_cubit.dart';
 
 void main() async {
   await initAppModule();
@@ -70,6 +72,11 @@ class MoviesApp extends StatelessWidget {
         BlocProvider<CastMembersCubit>(
           create: (context) => CastMembersCubit(
             instance<FetchCastMembersUseCase>(),
+          ),
+        ),
+        BlocProvider<PersonSearchCubit>(
+          create: (context) => PersonSearchCubit(
+            instance<PersonSearchUseCase>(),
           ),
         ),
       ],
