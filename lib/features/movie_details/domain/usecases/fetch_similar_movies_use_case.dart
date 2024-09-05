@@ -10,7 +10,7 @@ class FetchSimilarMoviesUseCase extends BaseUseCase<int, List<MovieEntity>> {
 
   FetchSimilarMoviesUseCase({required this.movieDetailsRepository});
   @override
-  Future<Either<Failure, List<MovieEntity>>> execute(int param) {
-    return movieDetailsRepository.fetchSimilarMovies(param);
+  Future<Either<Failure, List<MovieEntity>>> execute(int param) async {
+    return await movieDetailsRepository.fetchSimilarMovies(param);
   }
 }

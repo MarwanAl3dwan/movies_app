@@ -13,6 +13,6 @@ class FetchNowPlayingMoviesUseCase
 
   @override
   Future<Either<Failure, List<MovieEntity>>> execute([param]) async {
-    return homeRepository.fetchNowPlayingMovies();
+    return await homeRepository.fetchNowPlayingMovies();
   }
 }

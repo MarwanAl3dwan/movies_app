@@ -11,7 +11,7 @@ class FetchCastMembersUseCase extends BaseUseCase<int, List<CastMemberEntity>> {
   FetchCastMembersUseCase({required this.movieDetailsRepository});
 
   @override
-  Future<Either<Failure, List<CastMemberEntity>>> execute(int param) {
-    return movieDetailsRepository.fetchCastMembers(param);
+  Future<Either<Failure, List<CastMemberEntity>>> execute(int param) async {
+    return await movieDetailsRepository.fetchCastMembers(param);
   }
 }

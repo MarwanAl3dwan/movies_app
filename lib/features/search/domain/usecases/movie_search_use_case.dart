@@ -10,7 +10,7 @@ class MovieSearchUseCase extends BaseUseCase<String, List<MovieEntity>> {
 
   MovieSearchUseCase({required this.searchRepository});
   @override
-  Future<Either<Failure, List<MovieEntity>>> execute(String param) {
-    return searchRepository.fetchMovieSearch(param);
+  Future<Either<Failure, List<MovieEntity>>> execute(String param) async {
+    return await searchRepository.fetchMovieSearch(param);
   }
 }
